@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'author/new'
+  end
+
+  namespace :admin do
+  get 'author/create'
+  end
+
+  namespace :admin do
+  get 'author/edit'
+  end
+
+  namespace :admin do
+  get 'author/update'
+  end
+
+  namespace :admin do
+  get 'author/destroy'
+  end
+
+  namespace :admin do
+  get 'author/show'
+  end
+
+  namespace :admin do
+  get 'author/index'
+  end
+
   get 'about/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
