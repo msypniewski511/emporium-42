@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # Routes for namespace admin/publisher
+  namespace :admin do
+    resources :publishers
+  end
   namespace :admin do
     get 'author/new'
   end
