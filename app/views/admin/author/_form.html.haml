@@ -1,0 +1,11 @@
+//= error_messages_for @author
+- @object = @author
+= render partial: 'shared/error_messages'
+%p
+  %label{for: 'author_first_name'} First name
+  %br
+  = text_field 'author', 'first_name'
+%p
+  %label{for: 'author_last_name'} First name
+  %br
+  = text_field 'author', 'last_name'

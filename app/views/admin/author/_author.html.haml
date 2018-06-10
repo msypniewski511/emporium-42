@@ -1,0 +1,8 @@
+%tr
+  %td
+    = link_to author.name, action: 'show', id: author
+    //= link_to author.name, admin_author_show_path(author)
+  %td
+    = link_to 'Edit', action: 'edit', id: author
+  %td
+    = button_to 'Delete', {action: 'destroy', id: author, method: 'delete'}, data: {confirm: "Are you sure you want to delete author #{author.name}?"}

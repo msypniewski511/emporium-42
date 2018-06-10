@@ -1,2 +1,9 @@
-%h1 Admin::Author#show
-%p Find me in app/views/admin/author/show.html.haml
+%dl
+  %dt First name
+  %dd= @author.first_name
+  %dt Last name
+  %dd= @author.last_name
+%p
+  = link_to 'Edit', action: 'edit', id: @author
+  |
+  = link_to 'Back', action: 'index'

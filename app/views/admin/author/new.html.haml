@@ -1,2 +1,5 @@
-%h1 Admin::Author#new
-%p Find me in app/views/admin/author/new.html.haml
+= form_tag action: 'create' do
+  = render partial: 'form'
+  = submit_tag 'Create'
+%hr
+= link_to 'Back', action: 'index'

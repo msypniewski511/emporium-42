@@ -1,30 +1,31 @@
 Rails.application.routes.draw do
+
   namespace :admin do
-  get 'author/new'
+    get 'author/new'
   end
 
   namespace :admin do
-  get 'author/create'
+    post 'author/create'
   end
 
   namespace :admin do
-  get 'author/edit'
+    get 'author/edit'
   end
 
   namespace :admin do
-  get 'author/update'
+    post 'author/update'
   end
 
   namespace :admin do
-  get 'author/destroy'
+    post 'author/destroy'
   end
 
   namespace :admin do
-  get 'author/show'
+    get 'author/show'
   end
 
   namespace :admin do
-  get 'author/index'
+    get 'author/index'
   end
 
   get 'about/index'
