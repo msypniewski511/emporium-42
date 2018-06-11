@@ -5,6 +5,13 @@ Rails.application.routes.draw do
     resources :publishers
   end
   namespace :admin do
+    resources :books
+  end
+
+  post 'admin/books/create', to: 'admin_book#reate'
+
+
+  namespace :admin do
     get 'author/new'
   end
 

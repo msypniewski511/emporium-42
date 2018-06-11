@@ -1,0 +1,35 @@
+%h1 Listing admin_books
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Publisher
+      %th Authors
+      %th Published at
+      %th ISBN
+      %th Blurb
+      %th Price
+      %th Page count
+
+  %tbody
+    - @books.each do |admin_book|
+      %tr
+        %td= admin_book.title
+        %td= admin_book.publisher.name
+        %td
+          -admin_book.authors.each do |autor|
+            = autor.name
+            %br
+        %td= admin_book.published_at
+        %td= admin_book.isbn
+        %td= admin_book.blurb
+        %td= admin_book.price
+        %td= admin_book.page_count
+        %td= link_to 'Show', admin_book_path(admin_book)
+        %td= link_to 'Edit', edit_admin_book_path(admin_book)
+        %td= link_to 'Destroy', admin_book_path(admin_book), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Book', new_admin_book_path

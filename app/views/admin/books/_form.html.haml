@@ -1,0 +1,38 @@
+
+//= form_for @book, url: {action: "create"} do |f|
+= form_for [:admin, @book] do |f|
+  - if @book.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@book.errors.count, "error")} prohibited this admin_book from being saved:"
+      %ul
+        - @book.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :publisher
+    = f.select(:publisher_id, @publishers.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-control' })
+  .field
+    = f.label :authors
+    = f.select :author_ids, options_from_collection_for_select(@authors, :id, :name, @book.authors.collect{|author| author.id}), {}, {multiple: true, size: 5}
+    //= f.collection_check_boxes(:author_ids, Author.all, :id, :to_s)
+    //= f.select(:author_ids, Author.all.collect { |p| [ p.name, p.id ] }, { :multiple => true, :size => 5 })
+  .field
+    = f.label :published_at
+    = f.datetime_select :published_at
+  .field
+    = f.label :book_isbn
+    = f.text_field :isbn, placeholder: 'XXX-XXX-XXX-X'
+  .field
+    = f.label :blurb
+    = f.text_area :blurb
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :page_count
+    = f.text_field :page_count
+  .actions
+    = f.submit 'Save'

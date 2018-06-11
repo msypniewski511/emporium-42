@@ -28,14 +28,16 @@ gem "haml-rails", "~> 1.0"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-end
-
-group :test do
   gem 'rails-controller-testing'
   gem 'minitest'
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'guard-livereload'
+end
+
+group :test do
+
 end
 
 group :development do

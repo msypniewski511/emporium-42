@@ -1,0 +1,31 @@
+%table
+  %tr
+    %th Title:
+    %td= @book.title
+  %tr
+    %th Author(s):
+    %td
+      - @book.authors.each do |author|
+        = "#{author.name.capitalize}"
+        %br
+  %tr
+    %th Publisher:
+    %td= @book.publisher.name
+  %tr
+    %th Published at:
+    %td= @book.published_at
+  %tr
+    %th ISBN:
+    %td= @book.isbn
+  %tr
+    %th BLURB:
+    %td= @book.blurb
+  %tr
+    %th Price:
+    %td= @book.price
+  %tr
+    %th Page count:
+    %td= @book.page_count
+= link_to 'Edit', edit_admin_book_path(@book.id)
+\|
+= link_to 'Back', admin_books_path
