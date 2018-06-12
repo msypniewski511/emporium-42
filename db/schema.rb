@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180610155433) do
+ActiveRecord::Schema.define(version: 20180612090137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,17 @@ ActiveRecord::Schema.define(version: 20180610155433) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",        limit: 255, null: false
-    t.integer  "publisher_id",             null: false
+    t.string   "title",             limit: 255, null: false
+    t.integer  "publisher_id",                  null: false
     t.datetime "published_at"
-    t.string   "isbn",         limit: 13
+    t.string   "isbn",              limit: 13
     t.text     "blurb"
     t.integer  "page_count"
     t.float    "price"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "image"
+    t.text     "converted_to_html"
   end
 
   add_foreign_key "books", "admin_publishers", column: "publisher_id", name: "fk_books_admin_publishers", on_delete: :cascade

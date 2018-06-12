@@ -10,29 +10,32 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: 'input-field'
   .field
     = f.label :publisher
-    = f.select(:publisher_id, @publishers.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-control' })
+    = f.select(:publisher_id, @publishers.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-control input-field' })
   .field
     = f.label :authors
-    = f.select :author_ids, options_from_collection_for_select(@authors, :id, :name, @book.authors.collect{|author| author.id}), {}, {multiple: true, size: 5}
+    = f.select :author_ids, options_from_collection_for_select(@authors, :id, :name, @book.authors.collect{|author| author.id}), {}, {multiple: true, size: 5, class: 'input-field'}
     //= f.collection_check_boxes(:author_ids, Author.all, :id, :to_s)
     //= f.select(:author_ids, Author.all.collect { |p| [ p.name, p.id ] }, { :multiple => true, :size => 5 })
   .field
     = f.label :published_at
-    = f.datetime_select :published_at
+    = f.datetime_select :published_at, class: 'input-field'
   .field
     = f.label :book_isbn
-    = f.text_field :isbn, placeholder: 'XXX-XXX-XXX-X'
+    = f.text_field :isbn, placeholder: 'XXX-XXX-XXX-X', class: 'input-field'
   .field
     = f.label :blurb
-    = f.text_area :blurb
+    = f.text_area :blurb, rows: "25", class: 'input-field'
   .field
     = f.label :price
-    = f.text_field :price
+    = f.text_field :price, class: 'input-field'
   .field
     = f.label :page_count
-    = f.text_field :page_count
+    = f.text_field :page_count, class: 'input-field'
+  .field
+    = f.label :image
+    = f.file_field :image, class: 'input-field'
   .actions
     = f.submit 'Save'

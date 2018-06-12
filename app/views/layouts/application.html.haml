@@ -7,31 +7,32 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    #header
-      %h1#logo Emporium&trade;
-      %h2#slogan Books on Rails
-    #menu
-      %ul
-        %li
-          %a{href: "/admin/author/index"} Authors
-          &nbsp;|&nbsp;
-        %li
-          %a{href: "/admin/publishers"} Publishers
-          &nbsp;|&nbsp;
-        %li
-          %a{href: "/"} Catalog
-          &nbsp;|&nbsp;
-        %li
-          %a{href: "/about/index"} About
-          &nbsp;|&nbsp;
-        %li
-          %a{href: "/admin/author"} Authors
-          &nbsp;|&nbsp;
-    #content
-      - if @page_title
-        %h1= @page_title
-      - if flash[:notice]
-        #notice= flash[:notice]
-      = yield
-    #footer
-      &copy; 1995-2018 Emporium
+    #wrapper
+      #header
+        %h1#logo Emporium&trade;
+        %h2#slogan Books on Rails
+      #menu
+        %ul
+          %li
+            %a{href: "/admin/author/index"} Authors
+            &nbsp;|&nbsp;
+          %li
+            %a{href: "/admin/publishers"} Publishers
+            &nbsp;|&nbsp;
+          %li
+            %a{href: "/"} Catalog
+            &nbsp;|&nbsp;
+          %li
+            %a{href: "/about/index"} About
+            &nbsp;|&nbsp;
+          %li
+            %a{href: "/admin/books"} Authors
+            &nbsp;|&nbsp;
+      #content
+        - if @page_title
+          %h1= @page_title
+        - if flash[:notice]
+          #notice= flash[:notice]
+        = yield
+      #footer
+        &copy; 1995-2018 Emporium

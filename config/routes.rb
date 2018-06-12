@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :books
   end
 
-  post 'admin/books/create', to: 'admin_book#reate'
+  #post 'admin/books/create', to: 'admin_book#reate'
 
 
   namespace :admin do

@@ -7,7 +7,7 @@ class Author < ActiveRecord::Base
   before_destroy { books.clear }
   # Return full name from first_name and last_name
   def name
-    "#{first_name} #{last_name}"
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
 end

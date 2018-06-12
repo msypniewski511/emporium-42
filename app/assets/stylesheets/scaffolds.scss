@@ -2,6 +2,14 @@ body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+  h1 {
+    line-height: 2.5rem;
+  }
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: auto;
 }
 
 pre {
@@ -159,7 +167,7 @@ dt {
 
 body {
   background-color: #fff; color: #333;
-  margin-right: 230px;
+  margin: auto;
 }
 
 #books {
@@ -233,4 +241,7 @@ body {
 .translate {
   font-weight: bolder;
   color: red;
+}
+.input-field {
+  width: 100%;
 }

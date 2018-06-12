@@ -6,21 +6,29 @@ class Admin::BooksController < ApplicationController
   # GET /admin/books
   # GET /admin/books.json
   def index
-    @books = Book.all
+
+    @page_title = 'Listing books'
+    sort_by = params[:sort_by]
+    @books = Book.paginate(page: params[:page], per_page: 5).order(sort_by)
+    #@book_pages, @books = paginate :books, :order => sort_by, :per_page => 10
+    #@books = Book.all
   end
 
   # GET /admin/books/1
   # GET /admin/books/1.json
   def show
+    @page_title = "#{@book.title}"
   end
 
   # GET /admin/books/new
   def new
+    @page_title = 'New book'
     @book = Book.new
   end
 
   # GET /admin/books/1/edit
   def edit
+    @page_title = "Edit book"
   end
 
   # POST /admin/books
@@ -58,7 +66,7 @@ class Admin::BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to admin_books_path, notice: "Book #{@book.title} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -76,6 +84,6 @@ class Admin::BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_book_params
-      params.require(:book).permit(:title, {:author_ids => []}, :publisher_id, :published_at, :isbn, :blurb, :page_count, :price)
+      params.require(:book).permit(:title, {:author_ids => []}, :publisher_id, :published_at, :isbn, :blurb, :page_count, :price, :image)
     end
 end
