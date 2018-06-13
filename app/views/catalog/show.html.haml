@@ -1,0 +1,22 @@
+- content_for :description do
+  - @book.converted_to_html
+%h2
+  %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
+.books-element
+  .img-container
+    = image_tag(@book.image.thumb.url, alt: 'Image', class: 'image-book-list') if @book.image?
+  .content-container
+    %dd= pluralize(@book.page_count, "page")
+    %dd
+      Price: £
+      = sprintf("%.2f", @book.price)
+    %dd
+      %small
+        Publisher:
+        = @book.publisher.name
+    %dd= @book.published_at
+    %dd= @book.isbn
+  .blurb
+    = yield :description if @book.converted_to_html
+%hr.books-list
+= link_to "Back to Catalog", :action => "index"

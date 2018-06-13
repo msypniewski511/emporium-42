@@ -33,6 +33,8 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.1.0'
 gem 'textilize'
+gem 'ferret'
+gem 'acts_as_ferret'
 ################################################################################
 
 group :development, :test do

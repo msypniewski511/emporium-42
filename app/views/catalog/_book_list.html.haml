@@ -1,0 +1,20 @@
+
+%hr.books-list
+- for book in @books
+  %a{:href => "/catalog/#{book.id}"}
+    .books-element
+      %h4= book.title
+      .img-container
+        = image_tag(book.image.thumb.url, alt: 'Image', class: 'image-book-list') if book.image?
+      .content-container
+        - for author in book.authors
+          %dd= author.name
+        %dd= pluralize(book.page_count, "page")
+        %dd
+          Price: £
+          = sprintf("%.2f", book.price)
+        %dd
+          %small
+            Publisher:
+            = book.publisher.name
+  %hr.books-list

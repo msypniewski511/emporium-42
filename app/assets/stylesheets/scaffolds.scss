@@ -2,6 +2,8 @@ body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+  background-color: #fff; color: #333;
+  margin: auto;
   h1 {
     line-height: 2.5rem;
   }
@@ -164,16 +166,13 @@ dt {
   top: 0;
   left: 10px;
 }
-
-body {
-  background-color: #fff; color: #333;
-  margin: auto;
+#catalog {
+  width: 80%;
 }
-
 #books {
   list-style: none;
   padding: 0;
-  float: left;
+  //float: left;
 }
 
 #books .book {

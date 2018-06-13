@@ -6,6 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    //= link rel: "alternate" type: "application/rss+xml" title: "Codingfish RSS Feed" href: "https://www.codingfish.com/feed?format=rss"
   %body
     #wrapper
       #header
@@ -20,7 +21,7 @@
             %a{href: "/admin/publishers"} Publishers
             &nbsp;|&nbsp;
           %li
-            %a{href: "/"} Catalog
+            %a{href: "/catalog/index"} Catalog
             &nbsp;|&nbsp;
           %li
             %a{href: "/about/index"} About

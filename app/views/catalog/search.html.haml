@@ -1,0 +1,8 @@
+#catalog
+  %dl#books
+    = render partial: 'search_box'
+    - if @books
+      %p= "Your search #{params[:q]} produced #{pluralize @books_all.size, 'result'}"
+    = will_paginate @books
+    = render partial: 'book_list'
+    = will_paginate @books

@@ -6,6 +6,8 @@ class Book < ActiveRecord::Base
   has_and_belongs_to_many :authors
   before_destroy { authors.clear }
 
+  #acts_as_ferret :field => [:title]
+
   validates_length_of :title, in: 1..255
   validates_presence_of :publisher_id
   validates_presence_of :authors
@@ -17,6 +19,12 @@ class Book < ActiveRecord::Base
 
   ## Carrierwave
   mount_uploader :image, ImageUploader
+
+  def author_names
+    self.authors.map do |a|
+      a.name
+    end.join(", ") rescue ""
+  end
   private
 
   # function make conversation to html just once before validation
@@ -29,5 +37,11 @@ class Book < ActiveRecord::Base
       doc.to_html
       self.converted_to_html = RedCloth.new(doc).to_html
     end
+  end
+
+
+
+  def self.latest
+    Book.last(5).reverse
   end
 end

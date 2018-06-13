@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'catalog/index'
+  get '/catalog', to: 'catalog#index'
+  get 'catalog/latest'
+  get 'catalog/search', to: 'catalog#search'
+  get '/catalog/rss', to: 'catalog#rss', format: 'rss'
+  get '/catalog/:id', to: 'catalog#show'
+
   # Routes for namespace admin/publisher
   namespace :admin do
     resources :publishers
