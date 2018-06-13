@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/catalog/main'
   get 'catalog/index'
   get '/catalog', to: 'catalog#index'
   get 'catalog/latest'
@@ -47,6 +48,8 @@ Rails.application.routes.draw do
   end
 
   get 'about/index'
+
+  root 'catalog#main'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

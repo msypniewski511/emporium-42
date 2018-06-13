@@ -1,5 +1,5 @@
 xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
-xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
+xml.rss version: "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/", "xmlns:atom" => "http://www.w3.org/2005/Atom" do
   xml.channel do
     xml.title @page_title
     xml.link(url_for(:action => "index", :only_path => false))
@@ -8,7 +8,8 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
     xml.description "Emporium: Books for people"
     for book in @books
       xml.item do
-        xml.image(book.image.thumb.url)
+        #####################################################################
+        xml.media(:thumbnail, :url => book.image.thumb.url)
         xml.title(book.title)
         xml.description("#{book.title} by #{book.author_names}")
         xml.pubDate(book.created_at.to_s(:long))

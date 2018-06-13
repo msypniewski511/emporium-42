@@ -1,5 +1,8 @@
 class CatalogController < ApplicationController
 
+  def main
+  end
+
   def index
     @page_title = "Book List"
     #########Parent.includes(:children).paginate(:page => params[:page], :per_page => 30)
