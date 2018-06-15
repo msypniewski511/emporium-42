@@ -1,0 +1,131 @@
+@import 'colors';
+
+
+#book-details {
+  padding: 15px;
+  padding-top: 0;
+  box-shadow: $bottom-box-shadow;
+  display: grid;
+  //grid-gap: 15px;
+  font-size: 1rem;
+  line-height: 2rem;
+
+  // topper part
+  .description-top {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: (25%) (50%) (23%);
+
+    // photos style
+    #description-image {
+      img.real-size {
+        width: 99%;
+      }
+    }
+    // End of photos style
+
+    // Main info
+    #description-info {
+      padding-left: 25px;
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: .8rem;
+        font-weight: 100;
+      }
+
+      .reviews {
+        width: 100%;
+        border-top: 1px solid rgba(0,0,0,.1);
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        padding-top: 3px;
+        padding-bottom: 3px;
+        li {
+          padding: 5px 0;
+          line-height: 0.8rem;
+          display: inline-block;
+          &:first-of-type {
+            padding-right: 15px;
+            border-right: 1px solid rgba(0,0,0,.1);
+          }
+          &:last-of-type {
+            padding-left: 15px;
+          }
+          a {
+            font-size: .8rem;
+            color: rgb(0,0,0);
+            transition: .7s all linear;
+            &:hover .odnosnik {
+              color: rgb(0,0,255);
+            }
+            svg {
+              font-size: .7rem;
+              color: red;
+            }
+          }
+        }
+      }
+
+      .cena {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bolder;
+        color: $ligth-main-color;
+        margin: 8px 0;
+      }
+      .infoline {
+        display: block;
+        .details {
+          color: $ligth-main-color;
+        }
+      }
+    }
+
+    // Related part
+    #description-related {
+      a {
+        color: black;
+      }
+      width: 98%;
+      display: grid;
+      grid-gap: 3px;
+      .related-book {
+        padding-top: 5px;
+        display: grid;
+        grid-template-columns: (25%) (75%);
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        transition: .5s all linear;
+        &:hover {
+          box-shadow: $box-shadow;
+        }
+        .description-container {
+          padding-left: 5px;
+          .infoline, .infoline-1 {
+            display: block;
+          }
+          .infoline {
+            font-size: .7rem;
+            line-height: .7rem;
+            color: black !important;
+          }
+          .infoline-1 {
+            margin-top: 15px;
+            line-height: 1rem;
+            &:last-of-type {
+              color: $ligth-main-color !important;
+            }
+          }
+          svg {
+            color: red !important;
+          }
+        }
+        .thumb-container {
+          img {
+            width: 98%;
+          }
+        }
+      }
+    }
+  }
+}

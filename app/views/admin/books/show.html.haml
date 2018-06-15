@@ -1,37 +1,38 @@
-- content_for :description do
-  - @book.converted_to_html
-%table
-  %tr
-    %th Title:
-    %td= @book.title
-  %tr
-    %th Author(s):
-    %td
-      - @book.authors.each do |author|
-        = "#{author.name}"
-        %br
-  %tr
-    %th Publisher:
-    %td= @book.publisher.name
-  %tr
-    %th Published at:
-    %td= @book.published_at
-  %tr
-    %th ISBN:
-    %td= @book.isbn
-  %tr
-    %th BLURB:
-    %td
-      = yield :description if @book.converted_to_html
-  %tr
-    %th Price:
-    %td= @book.price
-  %tr
-    %th Page count:
-    %td= @book.page_count
-  %tr
-    %th Image
-    %td= image_tag(@book.image.url, alt: 'Image') if @book.image?
-= link_to 'Edit', edit_admin_book_path(@book.id)
-\|
-= link_to 'Back', admin_books_path
+.admin-index
+  - content_for :description do
+    - @book.converted_to_html
+  %table
+    %tr
+      %th Title:
+      %td= @book.title
+    %tr
+      %th Author(s):
+      %td
+        - @book.authors.each do |author|
+          = "#{author.name}"
+          %br
+    %tr
+      %th Publisher:
+      %td= @book.publisher.name
+    %tr
+      %th Published at:
+      %td= @book.published_at
+    %tr
+      %th ISBN:
+      %td= @book.isbn
+    %tr
+      %th BLURB:
+      %td
+        = yield :description if @book.converted_to_html
+    %tr
+      %th Price:
+      %td= @book.price
+    %tr
+      %th Page count:
+      %td= @book.page_count
+    %tr
+      %th Image
+      %td= image_tag(@book.image.url, alt: 'Image') if @book.image?
+  = link_to 'Edit', edit_admin_book_path(@book.id)
+  \|
+  = link_to 'Back', admin_books_path

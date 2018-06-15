@@ -1,8 +1,9 @@
-%table
-  %tr
-    %th Name
-    %th Edit
-    %th Delete
-  = render partial: 'author', collection: @authors
+.admin-index
+  %table
+    %tr
+      %th Name
+      %th Edit
+      %th Delete
+    = render partial: 'author', collection: @authors
 
-%p= link_to 'Add new author', action: 'new'
+    = link_to 'Add new author', {action: 'new'}, {class: "btn green"}

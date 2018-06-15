@@ -1,7 +1,8 @@
-= form_tag action: 'update', id: @author.id do
-  = render partial: 'form'
-  = submit_tag 'Update'
-%hr
-= link_to 'Show', action: 'show', id: @author
-|
-= link_to 'Back', action: 'index'
+.admin-index
+  = form_tag action: 'update', id: @author.id do
+    = render partial: 'form'
+    = submit_tag 'Update'
+  %hr
+  = link_to 'Show', action: 'show', id: @author
+  |
+  = link_to 'Back', action: 'index'

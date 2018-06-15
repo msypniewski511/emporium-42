@@ -1,0 +1,59 @@
+.header-img
+  .clasa
+    %p Lorem ipsum...
+  //=image_tag 'photos/dobre.jpeg'
+  //=image_tag 'photos/dobre-uciete.jpeg'
+.features
+  .first.pojemnik
+    .icon
+      %i.fas.fa-plane
+    .description
+      %h2 FREE SHIPPING WORLD WIDE
+      %p On Order Over £99
+  .second.pojemnik
+    .icon
+      %i.fas.fa-phone
+    .description
+      %h2 24/7 CUSTOMER SUPPORT
+      %p Call: (+44) 07857112527
+  .third.pojemnik
+    .icon
+      %i.fas.fa-hand-holding-usd
+    .description
+      %h2 MONEY BACK GUARANTEE
+      %p 30 Days Return Service
+
+// Main links
+.container
+  .left-container
+    .proba
+      .description
+        %h3 SHOP CATEGORY
+        %h2 E-BOOKS
+        %h3
+          %a{:href => "/catalog/index"}SHOP NOW ->
+      .picture
+        = image_tag '400x400_korn_ferry_ebook.png'
+  .rigth-container
+    .proba
+      .description
+        %h3 SHOP CATEGORY
+        %h2 TEXT BOOKS
+        %h3
+          %a{:href => "/catalog/index"}SHOP NOW ->
+      .picture
+        = image_tag 'book1-400x400.png'
+// Examples of products
+.navigator
+  %ul#navigator
+    %li.active
+      .test
+      %a{:href => "/"} Paper books
+    %li
+      .test
+      %a{:href => "/"} E-books
+    %li
+      .test
+      %a{:href => "/"} Audiobooks
+.latest
+  = render partial: 'book_list'

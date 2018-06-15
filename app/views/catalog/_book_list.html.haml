@@ -1,20 +1,33 @@
 
-%hr.books-list
-- for book in @books
-  %a{:href => "/catalog/#{book.id}"}
-    .books-element
+//%hr.books-list
+#book-container
+  - for book in @books
+    .book{name: "#{book.id}"}
+      %a{:href => "/catalog/#{book.id}"}
+        .topper-element
+          .books-element
+            .img-container
+              .search{title: 'Show product'}
+                %i.fas.fa-search
+              = image_tag(book.image.url, alt: 'Image', class: 'image-book-list') if book.image?
+          .content-container
+            .book-list-element.first-element
+              ADD TO CART |
+            .book-list-element.second-element{title: 'Add to compare product.'}
+              %i.fas.fa-list
+            .book-list-element.third-element{title: 'Vote product.'}
+              %i.fas.fa-thumbs-up
       %h4= book.title
-      .img-container
-        = image_tag(book.image.thumb.url, alt: 'Image', class: 'image-book-list') if book.image?
-      .content-container
-        - for author in book.authors
-          %dd= author.name
-        %dd= pluralize(book.page_count, "page")
-        %dd
-          Price: £
-          = sprintf("%.2f", book.price)
-        %dd
-          %small
-            Publisher:
-            = book.publisher.name
-  %hr.books-list
+      %p.price= "£#{book.price}"
+
+
+//:javascript
+//  $('.book').hover(function (){
+//      jQuery(this).children().children(".content-container").delay("fast").fadeOut();
+//      //jQuery(this).children().children(".content-container").css("display", 'none').delay( 800 );
+//    });
+//  $('.book').mouseover(function (){
+//      jQuery(this).children().children(".content-container").delay("fast").fadeIn();
+//      //jQuery(this).children().children(".content-container").css("display", 'block').delay( 800 );
+//  });
+//

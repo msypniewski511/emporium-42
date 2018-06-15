@@ -1,21 +1,22 @@
-%h1 Listing publishers
+.admin-index
+  %h1 Listing publishers
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @admin_publishers.each do |admin_publisher|
+  %table
+    %thead
       %tr
-        %td= admin_publisher.name
-        %td= link_to 'Show', admin_publisher
-        %td= link_to 'Edit', edit_admin_publisher_path(admin_publisher)
-        %td= button_to 'Destroy', admin_publisher, method: :delete, data: { confirm: 'Are you sure?' }
+        %th Name
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @admin_publishers.each do |admin_publisher|
+        %tr
+          %td= admin_publisher.name
+          %td= link_to 'Show', admin_publisher
+          %td= link_to 'Edit', edit_admin_publisher_path(admin_publisher)
+          %td= button_to 'Destroy', admin_publisher, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Publisher', new_admin_publisher_path
+  %br
+
+  = link_to 'New Publisher', new_admin_publisher_path, class: 'btn green'

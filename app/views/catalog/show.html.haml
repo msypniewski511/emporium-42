@@ -1,22 +1,76 @@
 - content_for :description do
   - @book.converted_to_html
-%h2
-  %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
-.books-element
-  .img-container
-    = image_tag(@book.image.thumb.url, alt: 'Image', class: 'image-book-list') if @book.image?
-  .content-container
-    %dd= pluralize(@book.page_count, "page")
-    %dd
-      Price: £
-      = sprintf("%.2f", @book.price)
-    %dd
-      %small
-        Publisher:
-        = @book.publisher.name
-    %dd= @book.published_at
-    %dd= @book.isbn
-  .blurb
-    = yield :description if @book.converted_to_html
-%hr.books-list
-= link_to "Back to Catalog", :action => "index"
+- content_for :short_description do
+  - @book.converted_to_html.truncate(250) if @book.converted_to_html
+#book-details
+  %hr
+  // Toper part of show
+  .description-top
+    #description-image
+      .img-container
+        = image_tag(@book.image.url, alt: 'Image', class: 'real-size') if @book.image?
+        = image_tag(@book.image.thumb.url, alt: 'Image', class: 'thumb') if @book.image?
+    #description-info
+      %h2= @book.title
+      %h3
+        %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
+      %ul.reviews
+        %li
+          %a{:href => "/"}
+            %i.fas.fa-star
+            %i.fas.fa-star
+            %i.fas.fa-star-half
+            %i.far.fa-star
+            %i.far.fa-star
+            &nbsp;
+            %span.odnosnik Reviews(1)
+        %li
+          %a{:href => "/"}
+            %span.odnosnik Write A Reviewe
+      %span.cena= "Price: £#{sprintf("%.2f", @book.price)}"
+      .infoline
+        %span.header
+          = "Page count: "
+        %span.details="#{@book.page_count}"
+      .infoline
+        = "Publisher: "
+        %span.details= "#{@book.publisher.name}"
+      .infoline
+        = "Published: "
+        %span.details= "#{@book.published_at}"
+      .infoline
+        = "isbn: "
+        %span.details= "#{@book.isbn}"
+      %hr
+      = yield :short_description if @book.converted_to_html
+    #description-related
+      %h3 Related books
+      - @related_books.each do |book|
+        %a{:href => "/catalog/#{book.id}"}
+          .related-book
+            .thumb-container
+              = image_tag(book.image.thumb.url, alt: 'Image', class: 'thumb') if @book.image?
+            .description-container
+              %span.infoline
+                %i.fas.fa-star
+                %i.fas.fa-star
+                %i.fas.fa-star-half
+                %i.far.fa-star
+                %i.far.fa-star
+              %span.infoline-1= book.title.truncate(50)
+              %span.infoline-1= "£#{book.price}"
+
+
+  .description-bottom
+    .navigator
+      %ul#navigator.left-side
+        %li.active
+          .test
+          %a{:href => "/catalog/#{@book.id}"} DESCRIPTION
+        %li
+          .test
+          %a{:href => "/catalog/#{@book.id}"} REVIEWS(1)
+      .blurb
+        = yield :description if @book.converted_to_html
+    %hr.books-list
+  = link_to "Back to Catalog", :action => "index"

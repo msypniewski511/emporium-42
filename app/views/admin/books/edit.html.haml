@@ -1,5 +1,6 @@
-= render 'form'
+.admin-index
+  = render 'form'
 
-= link_to 'Show', admin_book_path(id: @book.id)
-\|
-= link_to 'Back', admin_books_path
+  = link_to 'Show', admin_book_path(id: @book.id)
+  \|
+  = link_to 'Back', admin_books_path

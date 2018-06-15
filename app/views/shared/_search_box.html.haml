@@ -1,0 +1,5 @@
+= form_tag("/catalog/search/", method: "get") do
+  = text_field_tag :q, nil, placeholder: 'Enter search term...'
+  %button{ type: "submit"}
+    %i.fas.fa-search
+  //= submit_tag "Search"

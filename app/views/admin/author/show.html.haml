@@ -1,9 +1,10 @@
-%dl
-  %dt First name
-  %dd= @author.first_name
-  %dt Last name
-  %dd= @author.last_name
-%p
-  = link_to 'Edit', action: 'edit', id: @author
-  |
-  = link_to 'Back', action: 'index'
+.admin-index
+  %dl
+    %dt First name
+    %dd= @author.first_name
+    %dt Last name
+    %dd= @author.last_name
+  %p
+    = link_to 'Edit', action: 'edit', id: @author
+    |
+    = link_to 'Back', action: 'index'

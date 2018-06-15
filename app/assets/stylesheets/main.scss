@@ -7,4 +7,439 @@ Main style
 
 body {
   background: #fff;
+  font-family: 'Roboto Slab',serif;
+}
+
+#wrapper {
+  width: 70%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: $box-shadow;
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 15px 0;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .admin-index {
+    a {
+      color: red;
+    }
+  }
+  #topper-header, #menu, footer {
+    background: $dark-main-color;
+    padding: 10px;
+    color: #fff;
+    img.left-align {
+      float: right;
+      height: 15px;
+    }
+  }
+  #bottom-header {
+    background: $ligth-main-color;
+    padding: 15px;
+    img {
+      display: inline-block;
+    }
+    #container-logo {
+      display: inline-block;
+      #logo {
+        font-size: 2rem;
+      }
+      #slogan {
+        font-size: .5rem;
+        text-align: right;
+        color: white;
+      }
+    }
+  }
+  #topper-header {
+    font-size: .8rem;
+    display: block;
+    box-shadow: $bottom-box-shadow;
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+        transition: .5s all linear;
+        &:hover,
+        &:focus,
+	      &:active {
+          background: $ligth-main-color;
+          color: white;
+        }
+      }
+    }
+  }
+  /* toper nav */
+  ul {
+    list-style: none;
+  }
+  p#contact-info {
+    font-size: .7rem;
+    display: inline-block;
+  }
+  #selector {
+    display: inline-block;
+    float: right;
+  }
+  #selector > li {
+    float: left;
+    a {
+      padding:	0	25px;
+      //width:	150px;
+      border-left:	1px	solid	$ligth-main-color;
+      text-align: center;
+      line-height: 1.2rem;
+    }
+  }
+
+  #bottom-header {
+  }
+
+  /****************************************************************************/
+  /* Styles for main menu                                                     */
+  /****************************************************************************/
+  #menu {
+    padding: 0;
+    padding-left: 5px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.65);
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 13px;
+      line-height: 30px;
+      letter-spacing: 1px;
+      display: block;
+      padding: 8px 8px;
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
+      transition: all 1s linear;
+      &:hover,
+      &:active,
+      &:focus,
+      &.acitve {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0079b3+0,2989d8+89,2989d8+89,207cca+90,207cca+90,008acc+100*/
+        background: $ligth-main-color; /* Old browsers */
+        //background: -moz-linear-gradient(top, #0079b3 0%, #2989d8 89%, #2989d8 89%, #207cca 90%, #207cca 90%, #008acc 100%); /* FF3.6-15 */
+        //background: -webkit-linear-gradient(top, #0079b3 0%,#2989d8 89%,#2989d8 89%,#207cca 90%,#207cca 90%,#008acc 100%); /* Chrome10-25,Safari5.1-6 */
+        //background: linear-gradient(to bottom, #0079b3 0%,#2989d8 89%,#2989d8 89%,#207cca 90%,#207cca 90%,#008acc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079b3', endColorstr='#008acc',GradientType=0 ); /* IE6-9 */
+        color: white;
+        border-bottom: 5px solid white;
+        border-top: $dark-main-color;
+      }
+    }
+    ul, .search-form {
+      display: inline-block;
+      width: 49%;
+    }
+    ul li {
+      display: inline-block;
+    }
+    .search-form {
+      text-align: right;
+      input {
+        border: 0;
+        border-bottom: 1px solid $ligth-main-color;
+        background: transparent;
+        &[type='text'] {
+          &:focus,
+          &:active,
+          &:hover {
+            background: $dark-main-color;
+            border: 0;
+          }
+        }
+
+      }
+      button[type="submit"] {
+        background: transparent;
+        border: 0;
+        color: white;
+      }
+      ::placeholder {
+        color: white;
+        opacity: 1; /* Firefox */
+      }
+
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+         color: white;
+      }
+
+      ::-ms-input-placeholder { /* Microsoft Edge */
+         color: white;
+      }
+    }
+  }
+
+  #book-container {
+    display: grid;
+    grid-template-columns: (20%) (20%) (20%) (20%) (20%);
+    padding: 10px;
+
+    .book {
+      float: left;
+      text-align: center;
+      box-sizing: border-box;
+      //width: 17%;
+      //height: 360px;
+      margin-bottom: 25px;
+      margin-right: 2%;
+      overflow: hidden;
+      padding-top: 5px;
+      //padding: 10px;
+      border: 1px solid transparent;
+      .content-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        text-align: center;
+        top: -28px;
+        height: 50px;
+        -moz-transform: perspective(20px) rotateX(90deg) scale(0.1, .05);
+        transform: perspective(28px) rotateX(90deg) scale(0.6, .1);
+        background: $ligth-main-color;
+        color: white;
+        transition: .5s all linear;
+        .book-list-element {
+          padding: 15px 5px;
+          &:hover {
+            background: $dark-main-color;
+          }
+        }
+      }
+      h4 {
+        font-family: 'Rufina', serif;
+        position: relative;
+        top: -35px;
+      }
+      a{
+        display: block;
+        color: blue;
+        text-decoration: none;
+      }
+      .img-container {
+        top: 5px;
+        .search {
+          svg {
+            display: block;
+          }
+          position: relative;
+          padding: 10px;
+          width: 1em;
+          margin-left: 42%;
+          text-align: center;
+          font-size: 1em;
+          bottom: -100px;
+          color: white;
+          background: $ligth-main-color;
+          border: 1px solid white;
+          border-radius: 50%;
+          -moz-transform: rotate(170deg) scale(0.0, 0.0);
+          transform: rotate(170deg) scale(0.0, 0.0);
+          -moz-transition: 1s all linear;
+          transition: 1s all linear;
+        }
+        img {
+          width: 80%;
+          height: 300px;
+        }
+
+      }
+      &:hover {
+        border: 1px solid $ligth-main-color;
+        box-shadow: $box-shadow;
+        .content-container {
+          background: $ligth-main-color;
+          color: white;
+          transform: rotateX(0deg);
+          top: -51px;
+          height: 50px;
+          width: 100%;
+        }
+        .search {
+          transform: rotateX(0deg) scale(1, 1);
+          &:hover {
+            background: white;
+            color: $ligth-main-color;
+            border-color: $ligth-main-color;
+          }
+        }
+        h4 {
+          //top: -50px;
+        }
+      }
+    }
+  }
+  .price {
+    position: relative;
+    top: -10px;
+    color: $ligth-main-color;
+    text-width: bolder;
+  }
+
+  /****************************************************************************/
+  /** Styles for aginate eleements                                            */
+  /****************************************************************************/
+  .pagination {
+    clear: both;
+    text-align: center;
+    margin-bottom: 35px;
+    a {
+      text-decoration: none;
+      padding: 5px;
+      border: 1px solid $dark-main-color;
+      &:visited {
+        color: $ligth-main-color;
+      }
+    }
+    .current {
+      background: $dark-main-color;
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+      border: 1px solid $dark-main-color;
+    }
+  }
+
+  footer {
+    margin-top: 20px;
+    clear: both;
+    padding:0;
+    #main {
+      display: grid;
+      grid-template-columns: auto (20%) (20%) (18%);
+      background: $ligth-main-color;
+      .mapa {
+        width: 100%;
+      }
+      .moje-style {
+        padding: 15px;
+      }
+      h1 {
+        margin: 0;
+        text-align: left;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 17px;
+        line-height: 30px;
+        letter-spacing: 1px;
+      }
+      ul {
+        margin-top: 5px;
+        padding-left: 15px;
+        list-style: disc;
+        li {
+          //display: block;
+          padding: 5px;
+          transition: .7s all linear;
+          &:hover {
+            text-indent: 15px;
+          }
+        }
+      }
+      #stay-in-touch {
+        padding: 15px;
+        p {
+          margin: 5px;
+        }
+        svg {
+          padding: 4px;
+          border: 1px solid white;
+          border-radius: 50%;
+        }
+      }
+      #information {
+
+      }
+      #from-blog {
+        img {
+          width: 99%;
+        }
+      }
+    }
+    #top-bottom {
+      padding: 5px;
+    }
+  }
+
+
+  /****************************************************************************/
+  /*********** buttons as link ************************************************/
+  a.btn {
+    display: block;
+    width: 150px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .green {
+    background: green;
+    color: white !important;
+  }
+}
+
+
+@media(max-width: 1370px){
+  #wrapper {
+    width: 80%;
+
+    #menu {
+      font-size: 10px;
+      a {
+        padding: 8px 4px;
+      }
+
+      ul {
+        width: 60%;
+      }
+      .search-form {
+        display: inline-block;
+        width: 39%;
+      }
+    }// End #menu
+
+    .book-list-element {
+      font-size: 12px;
+    }
+    h3 {
+      font-size: 1rem;
+    }
+    ul {
+       a {
+         display: flex;
+       }
+
+     }
+     footer {
+       font-size: 0.8rem;
+     }
+   }
+}
+
+@media(max-width: 700px){
+  body {
+
+  }
+  #wrapper {
+    #book-container {
+      grid-template-columns: (33%) (33%) (33%);
+      .book {
+        img {
+          height: 200px !important;
+        }
+      }
+    }
+  }
 }

@@ -1,16 +1,20 @@
 class CatalogController < ApplicationController
 
   def main
+    @books = latest
   end
 
   def index
     @page_title = "Book List"
     #########Parent.includes(:children).paginate(:page => params[:page], :per_page => 30)
-    @books = Book.includes(:authors, :publisher).paginate(page: params[:page], per_page: 5).order("books.id desc")
+    @books = Book.includes(:authors, :publisher).paginate(page: params[:page], per_page: 10).order("books.id desc")
   end
 
   def show
     @book = Book.find(params[:id]) rescue nil
+    #TODO implement get related books###########################################
+    @related_books = Book.latest
+    #############################################################################
     return render(text: "Not found", status: 404) unless @book
     @page_title = @book.title
   end

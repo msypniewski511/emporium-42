@@ -1,0 +1,10 @@
+- for author in book.authors
+  %dd= author.name
+%dd= pluralize(book.page_count, "page")
+%dd
+  Price: £
+  = sprintf("%.2f", book.price)
+%dd
+  %small
+    Publisher:
+    = book.publisher.name
