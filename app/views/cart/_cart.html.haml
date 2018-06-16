@@ -1,0 +1,12 @@
+- if flash[:notice]
+  = render partial: "cart/cart_notice"
+
+%h3 Your shopping Cart
+
+%ul
+  - for item in @cart.cart_items
+    %li{id: "cart_item_#{item.book.id}"}
+      = render partial: "cart/item", object: item
+%p#cart_total
+  %strong
+    = "Total: £#{sprintf("%0.2f", @cart.total)}"

@@ -81,6 +81,9 @@
         - if flash[:notice]
           #notice= flash[:notice]
         = yield
+        - if @cart
+          #shopping_cart
+            = render partial: "cart/cart"
       %footer
         #main
           #stay-in-touch.moje-style

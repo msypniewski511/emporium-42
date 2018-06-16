@@ -1,4 +1,5 @@
 class CatalogController < ApplicationController
+  before_filter :initialize_cart
 
   def main
     @books = latest

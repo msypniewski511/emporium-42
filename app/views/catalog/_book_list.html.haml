@@ -12,7 +12,7 @@
               = image_tag(book.image.url, alt: 'Image', class: 'image-book-list') if book.image?
           .content-container
             .book-list-element.first-element
-              ADD TO CART |
+              = link_to 'ADD TO CART |', {controller: 'cart', action: "add", id: book}, method: "POST"
             .book-list-element.second-element{title: 'Add to compare product.'}
               %i.fas.fa-list
             .book-list-element.third-element{title: 'Vote product.'}

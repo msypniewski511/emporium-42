@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get '/catalog/rss', to: 'catalog#rss', format: 'rss'
   get '/catalog/:id', to: 'catalog#show'
 
+  #resources :cart
+  post 'cart/add/:id', to: 'cart#add'
+
+
   # Routes for namespace admin/publisher
   namespace :admin do
     resources :publishers

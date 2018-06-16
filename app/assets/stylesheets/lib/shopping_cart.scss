@@ -1,0 +1,31 @@
+#shopping_cart {
+border-left: 3px solid #666;
+background: #aaa;
+position: fixed;
+bottom: 0;
+right: 0;
+width: 200px;
+height: 100%;
+padding: 5px 10px;
+}
+#shopping_cart ul,
+#shopping_cart li {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+#shopping_cart h3 {
+padding-top: 4em;
+}
+#cart_notice {
+border: 2px solid #58A986;
+background: #B2FFD3;
+padding: 3px;
+position: absolute;
+top: 10px;
+left: 10px;
+}
+body {
+background-color: #fff; color: #333;
+margin-right: 230px;
+}

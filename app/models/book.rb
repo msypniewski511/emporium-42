@@ -5,6 +5,8 @@ class Book < ActiveRecord::Base
   belongs_to :publisher, class_name: 'Admin::Publisher'
   has_and_belongs_to_many :authors
   before_destroy { authors.clear }
+  has_many :cart_items
+  has_many :cars, through: :cart_items
 
   #acts_as_ferret :field => [:title]
 

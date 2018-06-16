@@ -1,0 +1,5 @@
+%strong
+  Please onfirm adding
+  %em= " #{@book.title} "
+  to your shopping cart.
+= button_to "Confirm", action: "add", id: params[:id]

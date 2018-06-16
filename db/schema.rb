@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612090137) do
+ActiveRecord::Schema.define(version: 20180616075743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20180612090137) do
     t.datetime "updated_at",                    null: false
     t.string   "image"
     t.text     "converted_to_html"
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "cart_id"
+    t.float    "price"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "books", "admin_publishers", column: "publisher_id", name: "fk_books_admin_publishers", on_delete: :cascade
