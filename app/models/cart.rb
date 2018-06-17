@@ -21,4 +21,17 @@ class Cart < ActiveRecord::Base
     end
     ci
   end
+
+  # Methodth to dlelete item from cart
+  def remove(book_id)
+    ci = cart_items.find_by_book_id(book_id)
+
+    if ci.amount > 1
+      ci.update_attribute(:amount, ci.amount - 1)
+    else
+      CartItem.destroy(ci.id)
+    end
+    return ci
+  end
+
 end

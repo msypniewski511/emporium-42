@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   #resources :cart
   post 'cart/add/:id', to: 'cart#add'
-
-
+  post 'cart/remove/:id', to: 'cart#remove'
+  post 'cart/clear', to: 'cart#clear'
   # Routes for namespace admin/publisher
   namespace :admin do
     resources :publishers

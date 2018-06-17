@@ -1,0 +1,40 @@
+#menu
+  %ul
+    %li
+      - if action_name == 'main' && controller_name == 'catalog'
+        %a{href: "/catalog/main", class: 'acitve'} Home
+      - else
+        %a{href: "/catalog/main"} Home
+    %li
+      - if action_name == 'index' && controller_name == 'author'
+        %a{href: "/admin/author/index", class: 'acitve'} Authors
+      - else
+        %a{href: "/admin/author/index"} Authors
+    %li
+      - if action_name == 'index' && controller_name == 'publishers'
+        %a{href: "/admin/publishers", class: 'acitve'} Publishers
+      - else
+        %a{href: "/admin/publishers"} Publishers
+    %li
+      - if action_name == 'index' && controller_name == 'catalog'
+        %a{href: "/catalog/index", class: 'acitve'} Catalog
+      - else
+        %a{href: "/catalog/index"} Catalog
+    %li
+      - if action_name == 'index' && controller_name == 'books'
+        %a{href: "/admin/books", class: 'acitve'} Books
+      - else
+        %a{href: "/admin/books"} Books
+    %li
+      - if action_name == 'latest'
+        %a{href: "/catalog/latest", class: 'acitve'} Latest
+      - else
+        %a{href: "/catalog/latest"} Latest
+    %li
+      - if action_name == 'index' && controller_name == 'about'
+        %a{href: "/about/index", class: 'acitve'} About
+      - else
+        %a{href: "/about/index"} About
+
+  .search-form
+    = render partial: 'shared/search_box'
