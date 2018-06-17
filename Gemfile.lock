@@ -119,10 +119,11 @@ GEM
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-brightbox (0.14.0)
+    fog-brightbox (0.15.0)
       fog-core (~> 1.22)
       fog-json
       inflecto (~> 0.0.2)
+      mime-types
     fog-cloudatcost (0.1.2)
       fog-core (~> 1.36)
       fog-json (~> 1.0)
@@ -290,12 +291,12 @@ GEM
       ruby-progressbar
     multi_json (1.13.1)
     nenv (0.3.0)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pg (0.21.0)
+    pg (0.20.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -412,7 +413,7 @@ DEPENDENCIES
   mini_magick
   minitest
   minitest-reporters
-  pg (~> 0.15)
+  pg (~> 0.20.0)
   rails (= 4.2.5)
   rails-controller-testing
   rails_12factor
