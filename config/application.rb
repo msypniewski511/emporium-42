@@ -24,3 +24,11 @@ module Emporium
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+module ActionView
+  class Base
+    # Specify whether RJS responses should be wrapped in a try/catch block
+    # that alert()s the caught exception (and then re-raises it).
+    cattr_accessor :debug_rjs
+    @@debug_rjs = false
+  end
+end
