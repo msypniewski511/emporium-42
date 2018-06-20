@@ -1,4 +1,13 @@
-= link_to item.book.title, action: 'show', controller: 'catalog', id: item.book.id
-= pluralize item.amount, "pc", "pcs"
-= "£#{sprintf("%0.2f", item.price * item.amount)}"
-= remove_book_link 'Delete', item.book
+.item-thumb
+  = image_tag(item.book.image.thumb.url, alt: 'Image', class: 'thumb') if item.book.image?
+.item-descriptions
+  %p= link_to item.book.title, action: 'show', controller: 'catalog', id: item.book.id
+  %p
+    %i.fas.fa-times
+    = item.amount
+  %p
+    %span.left
+      = "£#{sprintf("%0.2f", item.price * item.amount)}"
+    %span.rigth
+      = link_to remove_item_path(item.book), method: "POST", remote: true, title: "Remove item", class: 'prawa delete' do
+        %i.fas.fa-minus-circle

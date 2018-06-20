@@ -1,12 +1,85 @@
+@import 'colors';
 #shopping_cart {
-border-left: 3px solid #666;
-background: #aaa;
-position: fixed;
-bottom: 0;
-right: 0;
-width: 200px;
-height: 100%;
-padding: 5px 10px;
+  position: absolute;
+  //width: 30%;
+  top: 140px;
+  right: 17%;
+  max-width: 20%;
+  background: white;
+  //border: 1px solid blue;
+  padding: 25px;
+  color: black;
+  box-shadow: $box-shadow;
+  h3 {
+    font-size: 1.5rem;
+  }
+  div, p {
+    a {
+      color: black;
+    }
+  }
+  div.current_item {
+    display: grid;
+    grid: gap;
+    grid-template-columns: (100px) (auto);
+    padding: 5px;
+    border-bottom: 1px solid gray;
+  }
+  div.items, .current_item {
+
+    display: grid;
+    grid: gap;
+    grid-template-columns: (100px) (auto);
+    padding: 5px;
+    border-bottom: 1px solid gray;
+    .item-descriptions {
+      p {
+        .rigth {
+          float: right;
+        }
+      }
+      &>a {
+        float: right
+      }
+      //width: 80%;
+      padding-left: 5px;
+      p {
+        margin-bottom: 15px;
+        &:last-of-type {
+          margin-bottom: 5px;
+        }
+        a{
+          transition: .7s all linear;
+          &:hover {
+            color: $ligth-main-color !important;
+          }
+        }
+        a.delete {
+          transition: .3s all linear;
+          &:hover {
+            color: red !important;
+          }
+        }
+      }
+    }
+  }
+  #cart_total {
+    margin: 5px 0;
+    .right {
+      text-align: right;
+      float: right;
+      margin-right: 3px;
+    }
+  }
+  #clear_cart_link {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 5px 0;
+    color: white !important;
+    a {
+      color: white !important;
+    }
+  }
 }
 #shopping_cart ul,
 #shopping_cart li {
@@ -15,7 +88,7 @@ margin: 0;
 padding: 0;
 }
 #shopping_cart h3 {
-padding-top: 4em;
+  margin-bottom: 10px;
 }
 #cart_notice {
 border: 2px solid #58A986;
@@ -26,6 +99,167 @@ top: 10px;
 left: 10px;
 }
 body {
-background-color: #fff; color: #333;
-margin-right: 230px;
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// shoping cart in header //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+#cart-box {
+  width: 250px;
+  float: right;
+  color: white;
+  display: grid;
+  //grid-gap: 15px;
+  grid-template-columns: (55%) (45%);
+  margin-top: 25px;
+  margin-right: 15px;
+  border: 1px solid $dark-main-color;
+  border-radius: 15px;
+  padding-right: 10px;
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Currency menu /////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  .links {
+    padding: 5px 0px 5px 5px;
+    border-right: 1px solid $dark-main-color;
+    h2 {
+      display: block;
+      padding-left: 3px;transition: 1s all linear;
+    }
+    #currency {
+      position: absolute;
+      height: 0px;
+      width: 150px;
+      padding: 0px;
+      background: white !important;
+      transition: .5s all linear;
+      p {
+        color: rgba(0,0,0,.0);
+        text-align: center;
+        transition: .7s all linear;
+      }
+    }
+    h2:hover {
+      #currency {
+        display: block !important;
+        margin-top: 3px;
+        width: 150px;
+        height: 48px;
+        padding: 1px !important;
+        background: white !important;
+        border: 1px solid white;
+      }
+      p {
+        font-size: 16px;
+        color: $dark-main-color !important;
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        &:hover {
+          background: $ligth-main-color;
+          color: white !important;
+        }
+      }
+    }
+  }// End Currency menu ////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Cart details //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  .cart-details {
+    display: block;
+    width: 85px;
+    padding: 5px;
+    padding-right: 2px;
+    margin-left: 5px;
+
+    #amount {
+      display: inline-block;
+      width: 16px;
+      padding: 2px;
+      background: orange;
+      border-radius: 50%;
+      text-align: center;
+    }
+    #shoping-submenu-cart-list {
+      position: absolute;
+      height: 0px;
+      right: 15%;
+      //width: 150px;
+      padding: 0px;
+      background: white !important;
+      transition: .5s all linear;
+      ul {
+        float: left;list-style: none;}
+      li, li a{
+        color: rgba(0,0,0,1);
+        padding-left: 15px;
+        transition: all 1s linear;
+      }
+    }
+    &:hover {
+      #shoping-submenu-cart-list {
+        height:200px;
+        padding: 5px;
+        li, li a{
+          color: rgba(0,0,0,1);
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.current_item {
+  display: grid;
+  grid: gap;
+  grid-template-columns: (100px) (auto);
+  padding: 5px;
+  border-bottom: 1px solid gray;
 }

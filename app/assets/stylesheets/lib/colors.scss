@@ -3,3 +3,59 @@ $ligth-main-color: #008acc;
 
 $box-shadow: 10px 10px 20px -2px rgba(0,0,0,0.47);
 $bottom-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.62);
+
+.btn-small {
+  border-radius: 3px;
+  padding: 7px;
+  margin: 5px 0;
+  margin-right: 3px;
+  text-align: center;
+  background: rgb(51, 51, 51);
+  font-weight: bold;
+  color: white;
+  transition: .4s all linear;
+  &:last-of-type {
+    margin-right: 0px;
+  }
+  a {
+    margin: 5px;
+    line-height: 0;
+    display: block;
+    color: white !important;
+  }
+}
+
+
+
+.hover-blue {
+
+  &:hover {
+    background: rgb(0, 121, 179);
+    border-color: $ligth-main-color;
+  }
+}
+.delete {
+  //color: red !important;
+  &:hover {
+    color: red !important;
+  }
+}
+.hover-green {
+
+  &:hover {
+    background: rgb(85, 178, 85);
+    border-color: rgb(105, 206, 105);
+  }
+}
+
+.hover-red {
+  //background: black;
+  &:hover {
+    background: red;
+    border-color: red;
+  }
+}
+
+.add-green {
+  color: green !important;
+}

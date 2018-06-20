@@ -1,20 +1,20 @@
-- if flash[:cart_notice]
-  = render partial: "cart/cart_notice"
-
-%h3 Your shopping Cart
-
-%ol
-  - for item in @cart.cart_items
-    - if item == @current_item
-      %li#current_item
-        = render partial: "cart/item", object: item
-    - else
-      %li{id: "cart_item_#{item.book.id}"}
-        = render partial: "cart/item", object: item
+%h3
+  %i.fas.fa-shopping-cart
+  Your shopping
+- for item in @cart.cart_items
+  - if item == @current_item
+    #current_item.items
+      = render partial: "cart/item", object: item
+  - else
+    %div{id: "cart_item_#{item.book.id}", class: 'items'}
+      = render partial: "cart/item", object: item
 %p#cart_total
   %strong
-    = "Total: £#{sprintf("%0.2f", @cart.total)}"
+    %span.left
+      Total:
+    %span.right= "£#{sprintf("%0.2f", @cart.total)}"
 - unless @cart.cart_items.empty?
   %p#clear_cart_link
-    %small
-      = clear_cart_link
+    = link_to 'VIEW CART', cart_path, class: 'btn-small hover-blue'
+    = link_to 'CHECKOUT', '#', class: 'btn-small hover-green'
+    = clear_cart_link

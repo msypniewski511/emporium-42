@@ -14,14 +14,14 @@ module ApplicationHelper
       controller: 'cart',
       action: "remove",
       id: book
-    }, method: "POST", remote: true, title: "Remove book"
+    }, method: "POST", remote: true, title: "Remove book", class: 'btn-small'
   end
 
-  def clear_cart_link(text="Clear Cart")
+  def clear_cart_link(text="CLEAR CART")
     link_to text, {
       controller: 'cart',
       action: 'clear'
-    }, method: "POST", remote: true, title: "Clear Cart!"
+    }, method: "POST", remote: true, title: "Clear Cart!", class: 'btn-small hover-red'
   end
 
 

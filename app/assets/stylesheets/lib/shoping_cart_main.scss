@@ -1,0 +1,46 @@
+@import 'colors';
+
+#shopping-cart-main {
+  display: grid;
+  padding: 10px;
+  font-size: 100%;
+  color: black;
+  .header {
+    font-weight: bolder;
+  }
+  a {
+    color: black;
+    h2, p {
+      color: black;
+    }
+  }
+
+  .list-continer {
+    display: grid;
+    grid-template-columns: (auto) (20%) (20%);
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,5);
+    .item {
+      display: grid;
+      grid-template-columns: (15%) (auto);
+    }
+  }
+}
+.prawa {
+  float: right !important;
+  //color: red !important;
+  margin-right: 3px;
+}
+.red {
+  color: red !important;
+}
+.rigthm-argin {
+  margin-right: 10px;
+}
+
+
+
+
+
+
+.cosrfhrtfgdjh {padding:10px 0;margin:10px 0;}

@@ -37,6 +37,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'textilize'
 gem 'ferret'
 gem 'acts_as_ferret'
+gem 'font-awesome-sass', '~> 5.0.13'
 ################################################################################
 
 group :development, :test do

@@ -12,6 +12,7 @@
     //= link rel: "alternate" type: "application/rss+xml" title: "Codingfish RSS Feed" href: "https://www.codingfish.com/feed?format=rss"
   %body
     #wrapper
+      #notice= flash[:cart_notice]
       #header
         // topper header
         #topper-header
@@ -35,6 +36,28 @@
           #container-logo
             %h1#logo Emporium&trade;
             %h2#slogan Books on Rails
+
+          // Stle for cart deatils
+          #cart-box
+            .links
+              %h2
+                Currency £
+                %i.fas.fa-angle-down.submenu
+                #currency
+                  %p Britsh £
+                  %p Euro E
+                  %p USD $
+            .cart-details
+              %h2
+                Cart
+                %i.fas.fa-shopping-bag
+                = render partial: 'shared/amount'
+                //#shoping-submenu-cart-list
+
+
+
+
+
       = render partial: 'shared/menu'
       #content
         - if @page_title && action_name != 'main'
@@ -46,3 +69,8 @@
           #shopping_cart
             = render partial: "cart/cart"
       = render partial: 'shared/footer'
+:javascript
+  $('#shopping_cart').hide();
+  $('.cart-details').click(function(){
+    $('#shopping_cart').fadeToggle(500);
+  });

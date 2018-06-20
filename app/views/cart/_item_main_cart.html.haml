@@ -1,0 +1,39 @@
+.cos
+  .list-continer
+    .item
+      %span.header.rigthm-argin
+        Item
+    .quantity
+      %span.header.prawa.rigthm-argin
+        Quantity
+    .total
+      %span.header.prawa.rigthm-argin
+        Total
+  - for item in @cart.cart_items
+    %div{class: 'list-continer', id: "#{'current_item' if item == @current_item}"}
+      = link_to catalog_item_path(item.book.id) do
+        .item
+          .image= image_tag(item.book.image.thumb.url, alt: 'Image', class: 'thumb') if item.book.image?
+          .description
+            %h2= item.book.title
+            %p
+              %small= "by #{item.book.authors.map{|a| a.name}.join(', ')}"
+      .quantity
+        %span.prawa.rigthm-argin
+          = item.amount
+          = link_to add_item_path(item.book.id), method: "POST", remote: true, title: "Add item", class: 'add-green' do
+            = icon('fas', 'plus-circle')
+          = link_to remove_item_path(item.book), method: "POST", remote: true, title: "Remove item", class: 'red' do
+            = icon('fas', 'minus-circle')
+      .total
+        %span.prawa.rigthm-argin
+          = "£#{sprintf("%0.2f", item.price * item.amount)}"
+.cosrfhrtfgdjh
+  - unless @cart.cart_items.empty?
+    %p#clear_cart_link
+      = link_to 'CHECKOUT', '#', class: 'btn-small hover-green'
+      = clear_cart_link
+      %strong
+        %span.prawa.rigthm-argin
+          Total:
+          = "£#{sprintf("%0.2f", @cart.total)}"

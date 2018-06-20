@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   get 'catalog/latest'
   get 'catalog/search', to: 'catalog#search'
   get '/catalog/rss', to: 'catalog#rss', format: 'rss'
-  get '/catalog/:id', to: 'catalog#show'
+  get '/catalog/:id', to: 'catalog#show', as: 'catalog_item'
 
   #resources :cart
-  post 'cart/add/:id', to: 'cart#add'
-  post 'cart/remove/:id', to: 'cart#remove'
+  post 'cart/add/:id', to: 'cart#add', as: 'add_item'
+  post 'cart/remove/:id', to: 'cart#remove', as: 'remove_item'
   post 'cart/clear', to: 'cart#clear'
+  get 'cart', to: 'cart#view_cart'
   # Routes for namespace admin/publisher
   namespace :admin do
     resources :publishers

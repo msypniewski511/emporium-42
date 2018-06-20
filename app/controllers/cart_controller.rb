@@ -1,7 +1,9 @@
 class CartController < ApplicationController
   before_filter :initialize_cart
 
-
+  def view_cart
+  end
+  
   def add
     @book = Book.find(params[:id])
     if @item = @cart.add(params[:id])

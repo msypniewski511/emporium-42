@@ -1,3 +1,5 @@
 $('#shopping_cart').html("<%=j render(partial: 'cart') %>");
-$("#current_item").css({'background-color':'red'}).animate({'background-color':'#aaa;'}, 2000);
-$("#cart_notice").css({'background-color':'red'}).animate({'background-color':'#aaa'}, 2000);
+$('#shopping-cart-main').html("<%=j render(partial: 'cart/item_main_cart') %>");
+$("#current_item").css({'background-color':'red'}).animate({'background-color':'#fff;'}, 1000);
+$("#cart_notice").css({'background-color':'red'}).animate({'background-color':'#fff'}, 1000);
+$('#wrapper>#header>#bottom-header>#cart-box>.cart-details>h2>#amount').text("<%=  @cart.cart_items.size %>");
