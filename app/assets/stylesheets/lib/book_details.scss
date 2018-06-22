@@ -1,5 +1,7 @@
 @import 'colors';
-
+.fa-star {
+  color: red;
+}
 
 #book-details {
   padding: 15px;
@@ -55,6 +57,9 @@
           a {
             font-size: .8rem;
             color: rgb(0,0,0);
+            .fas {
+              color: red;
+            }
             transition: .7s all linear;
             &:hover .odnosnik {
               color: rgb(0,0,255);

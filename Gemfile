@@ -35,8 +35,11 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.1.0'
 gem 'textilize'
-gem 'ferret'
-gem 'acts_as_ferret'
+#gem 'ferret'
+#gem 'acts_as_ferret'
+# instead acts_as_threaded plugin
+gem 'awesome_nested_set'
+
 gem 'font-awesome-sass', '~> 5.0.13'
 ################################################################################
 

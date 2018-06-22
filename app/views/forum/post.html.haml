@@ -1,0 +1,24 @@
+- if @post.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@post.errors.count, "error")} prohibited this admin_book from being saved:"
+    %ul
+      - @post.errors.full_messages.each do |message|
+        %li= message
+= form_for @post, url: '/forum/create' do |f|
+  =f.hidden_field :parent_id
+  %p
+    %label{for: "post_name"}
+      Name
+    %br
+    = f.text_field :name
+  %p
+    %label{for: 'post_subject'}
+      Subject
+    %br
+    =f.text_field :subject
+  %p
+    %label{for: 'post_body'}
+      Body
+    %br
+    =f.text_area :body
+  = submit_tag "Post"

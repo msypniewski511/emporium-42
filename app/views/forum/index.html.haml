@@ -1,0 +1,11 @@
+#forum
+  - if @posts.size > 0
+    %div
+      = link_to 'New post', action: 'post'
+    %p
+      = display_as_threads(@posts).html_safe
+  - else
+    There are no posts yet.
+    = link_to 'Be first one to post here', action: 'post'
+  %br
+  = will_paginate @posts

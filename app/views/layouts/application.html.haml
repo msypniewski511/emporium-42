@@ -12,7 +12,8 @@
     //= link rel: "alternate" type: "application/rss+xml" title: "Codingfish RSS Feed" href: "https://www.codingfish.com/feed?format=rss"
   %body
     #wrapper
-      #notice= flash[:cart_notice]
+      - if flash[:cart_notice]
+        = render partial: "cart/cart_notie"
       #header
         // topper header
         #topper-header
@@ -38,21 +39,22 @@
             %h2#slogan Books on Rails
 
           // Stle for cart deatils
-          #cart-box
-            .links
-              %h2
-                Currency £
-                %i.fas.fa-angle-down.submenu
-                #currency
-                  %p Britsh £
-                  %p Euro E
-                  %p USD $
-            .cart-details
-              %h2
-                Cart
-                %i.fas.fa-shopping-bag
-                = render partial: 'shared/amount'
-                //#shoping-submenu-cart-list
+          - if @cart
+            #cart-box
+              .links
+                %h2
+                  Currency £
+                  %i.fas.fa-angle-down.submenu
+                  #currency
+                    %p Britsh £
+                    %p Euro E
+                    %p USD $
+              .cart-details
+                %h2
+                  Cart
+                  %i.fas.fa-shopping-bag
+                  = render partial: 'shared/amount'
+                  //#shoping-submenu-cart-list
 
 
 

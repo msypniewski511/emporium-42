@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'forum', to: 'forum#index'
+  get 'forum/reply/:id', to: 'forum#reply'
+  get 'forum/post'
+  post 'forum/create'
+  get 'forum/show/:id', to: 'forum#show'
+
+
+
   get '/catalog/main'
   get 'catalog/index'
   get '/catalog', to: 'catalog#index'

@@ -1,0 +1,12 @@
+#forum
+  %dl
+    %dt Name
+    %dd= h @post.name
+    %dt Subject
+    %dd= h @post.subject
+    %dt Body
+    %dd= h @post.body
+
+  = link_to 'Reply', action: 'reply', id: @post
+  |
+  = link_to 'Back', action: 'index'
