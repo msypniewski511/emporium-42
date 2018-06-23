@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'forum/reply/:id', to: 'forum#reply'
   get 'forum/post'
   post 'forum/create'
+  post "forum/review_create"
   get 'forum/show/:id', to: 'forum#show'
 
 

@@ -3,7 +3,7 @@ module ForumHelper
   def display_as_threads object
     content = ''
     for post in object
-      url = link_to("#{h post.subject}", action: 'show', id: post.id)
+      url = link_to("#{h post.subject}", action: 'show', controller: 'forum', id: post.id)
       margin_left = post.depth*20
       content << %(
         <div style="margin-left:#{margin_left}px">

@@ -18,6 +18,31 @@ class CatalogController < ApplicationController
     #############################################################################
     return render(text: "Not found", status: 404) unless @book
     @page_title = @book.title
+    #TODO albo nowa albo nowy post dla knigu                                   #
+    @subject = "Review for #{@book.title}"
+    @rating = ForumPost.average_votes(@book.id)
+
+
+
+    if ForumPost.where(book_id: @book.id).empty?
+      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
+      @new_review = true
+    else
+      ##########################################################################
+      #TODO pobranie elemtow rewiew dla publikacji##############################
+      ##########################################################################
+      #@posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).page(params[:page] || 1).per_page(4)
+      @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).paginate(page: params[:page], per_page: 5)
+      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
+      #@posts = ForumPost.where(book_id: @book.id)
+      @new_review = false
+    end
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @ics }
+      format.js
+    end
   end
 
   def search
@@ -38,6 +63,22 @@ class CatalogController < ApplicationController
     @books = Book.latest
     respond_to do |format|
       format.rss { render :layout => false }
+    end
+  end
+
+  def intialize_posts
+    @book = Book.find(params[:id])
+    if ForumPost.where(book_id: @book.id).empty?
+      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
+      @new_review = true
+    else
+      ##########################################################################
+      #TODO pobranie elemtow rewiew dla publikacji##############################
+      ##########################################################################
+      @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0])
+      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
+      #@posts = ForumPost.where(book_id: @book.id)
+      @new_review = false
     end
   end
 end

@@ -30,7 +30,27 @@ class ForumController < ApplicationController
       if @post.save
         flash[:notice] = "Post was successfuly created."
         format.html { redirect_to action: 'index' }
-        format.js {  }
+        format.js { }
+      else
+        @page_title = 'Post to forum'
+        format.html { render action: 'post' }
+        format.js { }
+      end
+    end
+  end
+
+  def review_create
+    @post = ForumPost.new(forum_post_params)
+
+    respond_to do |format|
+      if @post.save
+        @book = @post.book_id
+        @rating = ForumPost.average_votes(@book)
+
+        @posts = @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book, 0])
+        flash[:notice] = "Post was successfuly created."
+        format.html { redirect_to action: 'index' }
+        format.js { render action: 'add_review_with_ajax'  }
       else
         @page_title = 'Post to forum'
         format.html { render action: 'post' }
@@ -42,7 +62,7 @@ class ForumController < ApplicationController
   private
 
   def forum_post_params
-    params.fetch(:forum_post, {}).permit(:parent_id, :name, :subject, :body)
+    params.fetch(:forum_post, {}).permit(:parent_id, :name, :subject, :body, :book_id, :book_vote)
     #params.require(:forum_post).permit(:parent_id, :name, :subject, :body)
   end
 end

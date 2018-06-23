@@ -27,6 +27,11 @@ class Book < ActiveRecord::Base
       a.name
     end.join(", ") rescue ""
   end
+
+
+  def get_review
+    review
+  end
   private
 
   # function make conversation to html just once before validation
@@ -45,5 +50,9 @@ class Book < ActiveRecord::Base
 
   def self.latest
     Book.last(5).reverse
+  end
+
+  def review
+    ForumPost.where(book_id: self.id)
   end
 end

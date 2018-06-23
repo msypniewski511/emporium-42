@@ -16,14 +16,11 @@
         %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
       %ul.reviews
         %li
-          %a{:href => "/"}
-            %i.fas.fa-star
-            %i.fas.fa-star
-            %i.fas.fa-star-half
-            %i.far.fa-star
-            %i.far.fa-star
+          %a{:href => "#targetname"}
+            #review_stars
+              = review_stars(@rating).html_safe
             &nbsp;
-            %span.odnosnik Reviews(1)
+            %span.odnosnik= "Reviews(#{@posts?(@posts.size):0})"
         %li
           %a{:href => "/"}
             %span.odnosnik Write A Reviewe
@@ -64,13 +61,27 @@
   .description-bottom
     .navigator
       %ul#navigator.left-side
-        %li.active
+        %li#book-description.active
           .test
-          %a{:href => "/catalog/#{@book.id}"} DESCRIPTION
-        %li
+          %span.odnosnik DESCRIPTION
+        %li#book-reviews
           .test
-          %a{:href => "/catalog/#{@book.id}"} REVIEWS(1)
+          %span.odnosnik.reviews-amount= "REVIEWS(#{@posts?(@posts.size):0})"
+    .container-description#targetname
       .blurb
         = yield :description if @book.converted_to_html
+      .review
+        %h1 Customer reviews
+        -if !@new_review
+          = will_paginate @posts, remote: true
+          #rewiews
+            = render partial: "post", collection: @posts
+          = will_paginate @posts, remote: true
+
+          //TODO--------#czarna= (display_as_threads @posts).html_safe
+          = render partial: 'shared/review_form'
+        -else
+          = render partial: 'shared/review_form'
+
     %hr.books-list
-  = link_to "Back to Catalog", :action => "index"
+  = link_to "Back to Catalog", catalog_path, id: 'czarna'

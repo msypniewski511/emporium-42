@@ -25,7 +25,9 @@ $bottom-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.62);
   }
 }
 
-
+.person-icon {
+  font-size: 2rem;
+}
 
 .hover-blue {
 
@@ -58,4 +60,13 @@ $bottom-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.62);
 
 .add-green {
   color: green !important;
+}
+
+
+.odnosnik {
+  color: black;
+  transition: .7s all linear;
+}
+.odnosnik:hover {
+  color: $ligth-main-color;
 }

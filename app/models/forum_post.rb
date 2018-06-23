@@ -29,18 +29,22 @@ class ForumPost < ActiveRecord::Base
   validates_length_of :body, within: 5..5000
 
 
-
-
-
-
-
-
-
   ##############################################################################
   # moje methody
   def root?
     # Always if create new post withouth parent_id parent_id is default
     # thats mean post is first in thread
     parent_id == 0?true:false
+  end
+
+  def has_forum
+    book_id!= 0
+  end
+
+
+  # return avarage of votes for particular book
+  def self.average_votes(book_id)
+    posts = ForumPost.where("book_id = ?", book_id)
+    posts.size > 0 ? (posts.sum(:book_vote)/posts.size.to_f).round : 0
   end
 end

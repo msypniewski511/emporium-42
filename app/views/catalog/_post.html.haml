@@ -1,0 +1,9 @@
+%span.person-icon= icon('fas', 'user-circle')
+= post.name
+%h2
+  = render partial: 'shared/ranking', locals: {post: post} 
+  = post.subject
+%p= post.created_at.strftime("%Y-%m-%d")
+%p
+  = post.body
+%hr

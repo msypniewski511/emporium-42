@@ -9,7 +9,16 @@ body {
   background: #fff;
   font-family: 'Roboto Slab',serif;
 }
-
+#czarna {
+  color: black !important;
+  a{
+    color: black !important;
+  }
+}
+#forum_post_subject{
+  width: 100%;
+  background: red;
+}
 #wrapper {
   width: 70%;
   margin: auto;
@@ -105,6 +114,8 @@ body {
   /* Styles for main menu                                                     */
   /****************************************************************************/
   #menu {
+    display: grid;
+    grid-template-columns: (auto) (30%);
     padding: 0;
     padding-left: 5px;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.65);
@@ -138,13 +149,17 @@ body {
     }
     ul, .search-form {
       display: inline-block;
-      width: 49%;
     }
     ul li {
       display: inline-block;
     }
     .search-form {
+      vertical-align: center;
       text-align: right;
+      padding: (height/2);
+      padding: 10px;
+      padding-top: 20px;
+      padding-right: 30px;
       input {
         border: 0;
         border-bottom: 1px solid $ligth-main-color;
@@ -296,6 +311,7 @@ body {
       text-decoration: none;
       padding: 5px;
       border: 1px solid $dark-main-color;
+      color: $ligth-main-color;
       &:visited {
         color: $ligth-main-color;
       }

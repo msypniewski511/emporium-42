@@ -76,3 +76,17 @@
   $('.cart-details').click(function(){
     $('#shopping_cart').fadeToggle(500);
   });
+
+  $('#book-description').click(function(){
+    $('.review').hide();
+    $('.blurb').show();
+    $(this).addClass('active');
+    $('#book-reviews').removeClass('active');
+    //TODO add style for menu
+  });
+  $('#book-reviews').click(function(){
+    $('.blurb').hide();
+    $('.review').show();
+    $(this).addClass('active');
+    $('#book-description').removeClass('active');
+  })

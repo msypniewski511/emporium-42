@@ -57,6 +57,9 @@
           a {
             font-size: .8rem;
             color: rgb(0,0,0);
+            #review_stars {
+              display: inline-block;
+            }
             .fas {
               color: red;
             }
@@ -130,6 +133,18 @@
             width: 98%;
           }
         }
+      }
+    }
+  }
+
+
+
+  ///////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  .description-bottom {
+    .container-description {
+      .review {
+        display: none;
       }
     }
   }
