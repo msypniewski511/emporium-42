@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'catalog/search', to: 'catalog#search'
   get '/catalog/rss', to: 'catalog#rss', format: 'rss'
   get '/catalog/:id', to: 'catalog#show', as: 'catalog_item'
+  post '/catalog/:id', to: 'catalog#show'
 
   #resources :cart
   post 'cart/add/:id', to: 'cart#add', as: 'add_item'

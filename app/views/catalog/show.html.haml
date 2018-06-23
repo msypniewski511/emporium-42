@@ -20,7 +20,7 @@
             #review_stars
               = review_stars(@rating).html_safe
             &nbsp;
-            %span.odnosnik= "Reviews(#{@posts?(@posts.size):0})"
+            %span.odnosnik= "Reviews(#{@reviews?(@reviews.size):0})"
         %li
           %a{:href => "/"}
             %span.odnosnik Write A Reviewe
@@ -77,8 +77,6 @@
           #rewiews
             = render partial: "post", collection: @posts
           = will_paginate @posts, remote: true
-
-          //TODO--------#czarna= (display_as_threads @posts).html_safe
           = render partial: 'shared/review_form'
         -else
           = render partial: 'shared/review_form'

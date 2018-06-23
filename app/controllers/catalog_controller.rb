@@ -31,8 +31,35 @@ class CatalogController < ApplicationController
       ##########################################################################
       #TODO pobranie elemtow rewiew dla publikacji##############################
       ##########################################################################
-      #@posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).page(params[:page] || 1).per_page(4)
-      @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).paginate(page: params[:page], per_page: 5)
+      @reviews = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0])
+
+
+
+
+
+
+
+
+
+
+
+
+      #@posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).paginate(page: params[:page], per_page: 5)
+      @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).page(params[:page] || 1).per_page(5)
+
+      #Client.limit(5).offset(30)
+
+
+
+
+
+
+
+
+
+
+
+
       @post = ForumPost.new(parent_id: 0, book_id: @book.id)
       #@posts = ForumPost.where(book_id: @book.id)
       @new_review = false
@@ -66,19 +93,4 @@ class CatalogController < ApplicationController
     end
   end
 
-  def intialize_posts
-    @book = Book.find(params[:id])
-    if ForumPost.where(book_id: @book.id).empty?
-      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
-      @new_review = true
-    else
-      ##########################################################################
-      #TODO pobranie elemtow rewiew dla publikacji##############################
-      ##########################################################################
-      @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0])
-      @post = ForumPost.new(parent_id: 0, book_id: @book.id)
-      #@posts = ForumPost.where(book_id: @book.id)
-      @new_review = false
-    end
-  end
 end
