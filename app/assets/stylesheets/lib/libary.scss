@@ -1,0 +1,83 @@
+@import 'colors';
+
+// navigation for pagination section ------------------------------------------/
+////////////////////////////////////////////////////////////////////////////////
+
+nav.ms-pagination {
+  margin: 0;
+  padding: 0;
+  color: $ligth-main-color;
+  ul.pager {
+    display: block;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    li {
+      display: inline-block;
+      width: 90px;
+      padding: 0 5px;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid $ligth-main-color;
+      &.previous {
+        color: $ligth-main-color;
+
+      }
+      &.actual {
+        background: $dark-main-color;
+        color: #fff;
+      }
+      &.amunt {
+        background: $dark-main-color;
+        color: white;
+      }
+      &>a {
+        display: block;
+        color: $ligth-main-color;
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Styles for form                                                            //
+////////////////////////////////////////////////////////////////////////////////
+form {
+  display: block;
+  width: 90%;
+  input[type="text"], textarea, select {
+    display: block;
+    width: 90%;
+  }
+  input[type="submit"] {
+    
+  }
+}
+
+.btn {
+  padding: 0 !important;
+  transition: .7s all linear;
+  font-weight: 800;
+}
+.btn-blue {
+  background: $ligth-main-color;
+  color: white;
+  &:hover {
+    background: $dark-main-color;
+  }
+}
+.btn-green {
+  background: $main-green;
+  color: white;
+  &:hover {
+    background: $dark-green;
+  }
+}
+.btn-yellow {
+  background: yellow;
+  color: rgba(0,0,0,.5);
+  &:hover {
+    background: rgb(178, 163, 0);
+    color: white;
+  }
+}

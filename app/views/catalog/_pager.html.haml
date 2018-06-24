@@ -1,0 +1,8 @@
+%nav
+  %ul.pager
+    -if session[:page_session] > 0
+      %li.previous
+        = link_to "&larr; Previous".html_safe, catalog_item_path(@book.id, page: -1), remote: true, title: 'Previous Page', id: 'czarna'
+    %li.next
+      = link_to "&rarr; Next".html_safe, catalog_item_path(@book.id, page: 1), remote: true, method: 'POST', title: 'Next Page', id: 'czarna'
+= "Pierdolona sesja #{session[:page_session]}"

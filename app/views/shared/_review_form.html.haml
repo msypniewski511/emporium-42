@@ -1,34 +1,32 @@
-%fieldset
-  %legend
-    %h3
-      = "Add Your review about #{@book.title}"
-    = @post.subject
-    - if @post.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@post.errors.count, "error")} prohibited this admin_book from being saved:"
-        %ul
-          - @post.errors.full_messages.each do |message|
-            %li= message
-    = form_for @post, url: '/forum/review_create', remote: true do |f|
-      =f.hidden_field :parent_id
-      =f.hidden_field :book_id
-      %p
-        %label{for: "post_name"}
-          Name
-        %br
-        = f.text_field :name
-      %p
-        %label{for: 'vote'}
-          Vote
-        %br
-        = f.select(:book_vote, options_for_select([['I hate it', 1], ['I do not like it', 2], ['It is ok', 3], ['I like it', 4], ['I love it', 5]], 3))
-      %p
-        %label{for: "subject"}
-          Subject
-        =f.text_field :subject
-      %p
-        %label{for: 'post_body'}
-          Body
-        %br
-        =f.text_area :body
-      = submit_tag "Post"
+%h3
+  = "Add Your review about #{@book.title}"
+= @post.subject
+- if @post.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@post.errors.count, "error")} prohibited this admin_book from being saved:"
+    %ul
+      - @post.errors.full_messages.each do |message|
+        %li= message
+= form_for @post, url: '/forum/review_create', remote: true do |f|
+  =f.hidden_field :parent_id
+  =f.hidden_field :book_id
+  %p
+    %label{for: "post_name"}
+      Name
+    %br
+    = f.text_field :name
+  %p
+    %label{for: 'vote'}
+      Vote
+    %br
+    = f.select(:book_vote, options_for_select([['I hate it', 1], ['I do not like it', 2], ['It is ok', 3], ['I like it', 4], ['I love it', 5]], 3))
+  %p
+    %label{for: "subject"}
+      Subject
+    =f.text_field :subject
+  %p
+    %label{for: 'post_body'}
+      Body
+    %br
+    =f.text_area :body
+  = submit_tag "Add review"

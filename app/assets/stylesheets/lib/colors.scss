@@ -1,5 +1,11 @@
 $dark-main-color: #0079b3;
 $ligth-main-color: #008acc;
+$main-green: rgb(66, 244, 149);
+$dark-green: rgb(48, 173, 90);
+$main-yellow: rgb(247, 235, 131);
+$secondary-yellow: rgb(249, 234, 97);
+$limon: rgb(150, 255, 58);
+$secondary-limon: rgb(90, 163, 26);
 
 $box-shadow: 10px 10px 20px -2px rgba(0,0,0,0.47);
 $bottom-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.62);
@@ -17,7 +23,7 @@ $bottom-box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.62);
   &:last-of-type {
     margin-right: 0px;
   }
-  a {
+  &>a {
     margin: 5px;
     line-height: 0;
     display: block;

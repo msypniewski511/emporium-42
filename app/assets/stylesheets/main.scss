@@ -15,10 +15,7 @@ body {
     color: black !important;
   }
 }
-#forum_post_subject{
-  width: 100%;
-  background: red;
-}
+
 #wrapper {
   width: 70%;
   margin: auto;
@@ -31,7 +28,7 @@ body {
     margin: 15px 0;
   }
   a {
-    color: white;
+    //color: white;
     text-decoration: none;
   }
   .admin-index {
@@ -329,6 +326,9 @@ body {
     margin-top: 20px;
     clear: both;
     padding:0;
+    a{
+      color: white;
+    }
     #main {
       display: grid;
       grid-template-columns: auto (20%) (20%) (18%);
@@ -393,12 +393,12 @@ body {
   /*********** buttons as link ************************************************/
   a.btn {
     display: block;
-    width: 150px;
+    //width: 150px;
     font-size: 1.3rem;
     text-decoration: none;
     text-align: center;
     padding: 5px;
-    border-radius: 5px;
+    //border-radius: 5px;
   }
   .green {
     background: green;

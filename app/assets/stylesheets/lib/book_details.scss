@@ -88,7 +88,13 @@
           color: $ligth-main-color;
         }
       }
-    }
+
+      #description-info-links ul {
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: auto auto auto;
+      }
+    }// end of description info
 
     // Related part
     #description-related {
@@ -143,8 +149,8 @@
   //////////////////////////////////////////////////////////////////////////////
   .description-bottom {
     .container-description {
-      .review {
-        //display: none;
+      .blurb {
+        display: none;
       }
     }
   }

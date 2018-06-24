@@ -1,2 +1,1 @@
-$('#rewiews').html('<%= js_will_paginate @posts, :params => { :my_excluded_param => nil } %>');
-$('#rewiews').html('<%= escape_javascript (render partial: "post", collection: @posts, :remote => true) %>');
+$('#rewiews').html('<%= escape_javascript (render partial: "post", locales: @posts, :remote => true) %>');
