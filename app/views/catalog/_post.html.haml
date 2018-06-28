@@ -1,22 +1,29 @@
-%nav.ms-pagination
-  %ul.pager
-    -if session[:page_session] > 0
-      %li.previous
-        = link_to "&larr; Previous".html_safe, catalog_item_path(@book.id, page: -1), remote: true, title: 'Previous Page'
-    %li.actual
-      = (session[:page_session]) + 1
-      ="out of #{@koniec + 1}"
-    - unless session[:page_session].to_i == @koniec
-      %li.next
-        = link_to "Next &rarr;".html_safe, catalog_item_path(@book.id, page: 1), remote: true, method: 'POST', title: 'Next Page'
+- if @posts
+  %nav.ms-pagination
+    %ul.pager
+      -if session[:page_session] > 0
+        %li.previous
+          = link_to "&larr; Previous".html_safe, catalog_item_path(@book.id, post_page: -1), remote: true, title: 'Previous Page'
+      %li.actual
+        - if @koniec
+          = (session[:page_session]) + 1
+          - @post_page = (session[:page_session]) + 1
+          ="out of #{@koniec + 1}"
+      - unless session[:page_session].to_i == @koniec
+        %li.next
+          = link_to "Next &rarr;".html_safe, catalog_item_path(@book.id, post_page: 1), remote: true, title: 'Next Page'
 
-- @posts.each do |post|
-  %span.person-icon= icon('fas', 'user-circle')
-  = post.name
-  %h2
-    = render partial: 'shared/ranking', locals: {post: post}
-    = post.subject
-  %p= post.created_at.strftime("%Y-%m-%d")
-  %p
-    = post.body
+  - @posts.each do |post|
+    //TODO user email to avater
+    //if (user.email)
+    .user-info
+      = gravatar_for 'msypniewski511@interia.pl', 30
+      = post.name
+    .review
+      %h2
+        = render partial: 'shared/ranking', locals: {post: post}
+        = post.subject
+    %p= post.created_at.strftime("%Y-%m-%d")
+    %p
+      = post.body
   %hr

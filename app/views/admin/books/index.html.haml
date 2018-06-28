@@ -1,4 +1,9 @@
 .admin-index
+  #tag_cloud
+    -tag_cloud Book.tag_counts, %w{s m l} do |tag, css_class|
+      = link_to tag.name, tag_path(tag.name), class: css_class
+
+
   %table
     %thead
       %tr
@@ -10,6 +15,7 @@
 
         %th
           %a{:href => "?sort_by=isbn"} ISBN
+        %th Tags
         //%th Blurb
         //%th Price
         //%th Page count
@@ -27,6 +33,7 @@
           //    %br
           //%td= admin_book.published_at
           %td=h admin_book.isbn
+          %td=h display_tags_for_book(admin_book)
           //%td= admin_book.blurb
           //%td= admin_book.price
           //%td= admin_book.page_count

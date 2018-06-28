@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :books
   end
+  resources :tags, only: [:index, :show]
 
   #post 'admin/books/create', to: 'admin_book#reate'
 

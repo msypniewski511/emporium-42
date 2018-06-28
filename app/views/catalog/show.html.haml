@@ -1,9 +1,8 @@
 - content_for :description do
   - @book.converted_to_html
 - content_for :short_description do
-  - @book.converted_to_html.truncate(250) if @book.converted_to_html
+  - @book.converted_to_html.truncate(900) if @book.converted_to_html
 #book-details
-  %hr
   // Toper part of show
   .description-top
     #description-image
@@ -11,36 +10,37 @@
         = image_tag(@book.image.url, alt: 'Image', class: 'real-size') if @book.image?
         = image_tag(@book.image.thumb.url, alt: 'Image', class: 'thumb') if @book.image?
     #description-info
-      %h2= @book.title
-      %h3
-        %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
-      %ul.reviews
-        %li
-          %a{:href => "#targetname"}
-            #review_stars
-              = review_stars(@rating).html_safe
-            &nbsp;
-            %span.odnosnik= "Reviews(#{@reviews?(@reviews.size):0})"
-        %li
-          %a{:href => "#targetname-form"}
-            %span.odnosnik Write A Reviewe
-      %span.cena= "Price: £#{sprintf("%.2f", @book.price)}"
-      .infoline
-        %span.header
-          = "Page count: "
-        %span.details="#{@book.page_count}"
-      .infoline
-        = "Publisher: "
-        %span.details= "#{@book.publisher.name}"
-      .infoline
-        = "Published: "
-        %span.details= "#{@book.published_at}"
-      .infoline
-        = "isbn: "
-        %span.details= "#{@book.isbn}"
-      %hr
-      = yield :short_description if @book.converted_to_html
-      %hr
+      #info
+        %h2= @book.title
+        %h3
+          %small= "by #{@book.authors.map{|a| a.name}.join(', ')}"
+        %ul.reviews
+          %li
+            %a{:href => "#targetname"}
+              #review_stars
+                = review_stars(@rating).html_safe
+              &nbsp;
+              %span.odnosnik= "Reviews(#{@reviews?(@reviews.size):0})"
+          %li
+            %a{:href => "#targetname-form"}
+              %span.odnosnik Write A Reviewe
+        %span.cena= "Price: £#{sprintf("%.2f", @book.price)}"
+        .infoline
+          %span.header
+            = "Page count: "
+          %span.details="#{@book.page_count}"
+        .infoline
+          = "Publisher: "
+          %span.details= "#{@book.publisher.name}"
+        .infoline
+          = "Published: "
+          %span.details= "#{@book.published_at}"
+        .infoline
+          = "isbn: "
+          %span.details= "#{@book.isbn}"
+      #short-description
+        = @book.converted_to_html.truncate(1000).html_safe if @book.converted_to_html
+        //= yield :short_description if @book.converted_to_html.html_safe
       #description-info-links
         %ul
           %li
@@ -55,22 +55,17 @@
             = link_to '#', class: 'btn btn-yellow' do
               %i.fas.fa-align-left
               Add to Compare
-
-    / Section related books
+    // Section related books
     #description-related
-      %h3 Related books
-      - @related_books.each do |book|
-        %a{:href => "/catalog/#{book.id}"}
-          .related-book
-            .thumb-container
-              = image_tag(book.image.thumb.url, alt: 'Image', class: 'thumb') if book.image?
-            .description-container
-              %span.infoline
-                = review_stars(ForumPost.average_votes(book.id)).html_safe
-              %span.infoline-1= book.title.truncate(50)
-              %span.infoline-1= "£#{book.price}"
+      = render partial: 'related_books'
 
 
+  // section tags
+  #tagging-section
+    %h3 Tags List
+    = display_tags_and_tagging_acount(@book).html_safe
+
+  // bottom section of show
   .description-bottom
     .navigator
       %ul#navigator.left-side

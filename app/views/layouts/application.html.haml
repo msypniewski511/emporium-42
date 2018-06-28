@@ -73,6 +73,7 @@
           #shopping_cart
             = render partial: "cart/cart"
       = render partial: 'shared/footer'
+    = debug(params) if Rails.env.development?
 :javascript
   $('#shopping_cart').hide();
   $('.cart-details').click(function(){

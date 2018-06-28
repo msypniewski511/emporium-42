@@ -50,7 +50,7 @@ form {
     width: 90%;
   }
   input[type="submit"] {
-    
+
   }
 }
 
@@ -60,7 +60,7 @@ form {
   font-weight: 800;
 }
 .btn-blue {
-  background: $ligth-main-color;
+  background: rgba(0, 138, 204, .8);
   color: white;
   &:hover {
     background: $dark-main-color;
@@ -80,4 +80,21 @@ form {
     background: rgb(178, 163, 0);
     color: white;
   }
+}
+
+
+
+
+
+#tag_cloud {
+  width: 100%;
+  line-height: 1.6em;
+  a {
+    //display: inline-block;
+    padding: 2px 5px;
+    margin: 3px;
+  }
+  .s { background: #C71585; color: white; font-size: 0.6em; }
+  .m { background: #C71585; color: white; font-size: 1em; }
+  .l { background: red; color: white; font-size: 1.2em; }
 }

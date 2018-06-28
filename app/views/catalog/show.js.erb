@@ -1,1 +1,2 @@
 $('#rewiews').html('<%= escape_javascript (render partial: "post", locales: @posts, :remote => true) %>');
+$('#description-related').html('<%= escape_javascript (render partial: "related_books", :remote => true) %>');

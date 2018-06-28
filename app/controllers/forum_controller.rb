@@ -41,20 +41,29 @@ class ForumController < ApplicationController
 
   def review_create
     @post = ForumPost.new(forum_post_params)
-
+    @book = Book.find(params[:id]) rescue nil
     respond_to do |format|
       if @post.save
-        @book = @post.book_id
-        @rating = ForumPost.average_votes(@book)
+        @post_page = 0
 
-        @posts = @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book, 0])
+
+        @book = Book.find(@post.book_id)
+        @rating = ForumPost.average_votes(@book)
+        @posts = ForumPost.where(["book_id = ? and parent_id = ?", @post.book_id, 0])
+        @koniec = @posts.size/5
+
+        # Search all posts for particular book and divide to pagination
+        @posts = ForumPost.where(["book_id = ? and parent_id = ?", @book.id, 0]).
+        offset(0).limit(5)
+
+
         flash[:notice] = "Post was successfuly created."
         format.html { redirect_to action: 'index' }
         format.js { render action: 'add_review_with_ajax'  }
       else
         @page_title = 'Post to forum'
         format.html { render action: 'post' }
-        format.js { }
+        format.js { redirect_to catalog_item_path(id: @book.id) }
       end
     end
   end

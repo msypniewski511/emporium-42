@@ -1,3 +1,4 @@
-$('.review').html("<%=j render 'catalog/books' %>");
+$('#rewiews').html('<%= escape_javascript (render partial: "catalog/post", locales: @posts, :remote => true) %>');
 $('.reviews-amount').text('<%= "REVIEWS(#{@posts?(@posts.size):0})" %>');
-$('#review_stars').html("<%= review_stars(@rating).html_safe %>")
+$('#review_stars').html("<%= review_stars(@rating).html_safe %>");
+$('#review-form').hide('slow');

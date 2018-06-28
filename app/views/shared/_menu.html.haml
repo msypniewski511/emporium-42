@@ -17,7 +17,7 @@
         - else
           %a{href: "/admin/publishers"} Publishers
       %li
-        - if action_name == 'index' && controller_name == 'catalog'
+        - if (action_name == 'index' || action_name == 'show') && controller_name == 'catalog'
           %a{href: "/catalog/index", class: 'acitve'} Catalog
         - else
           %a{href: "/catalog/index"} Catalog

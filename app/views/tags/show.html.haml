@@ -1,0 +1,7 @@
+//%h1= @tag.name
+//%div= render partial: 'admin/books/book', collection: @books
+- if @books
+  %p= "Your search TODO produced #{pluralize @books.size, 'result'}"
+//= will_paginate @books
+= render partial: 'catalog/book_list'
+//= will_paginate @books

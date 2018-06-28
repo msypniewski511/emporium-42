@@ -44,7 +44,7 @@ class ForumPost < ActiveRecord::Base
 
   # return avarage of votes for particular book
   def self.average_votes(book_id)
-    posts = ForumPost.where("book_id = ?", book_id)
+    posts = ForumPost.where(book_id: book_id)
     posts.size > 0 ? (posts.sum(:book_vote)/posts.size.to_f).round : 0
   end
 end

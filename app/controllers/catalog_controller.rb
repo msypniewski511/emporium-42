@@ -17,11 +17,15 @@ class CatalogController < ApplicationController
   ##############################################################################################
   def show
 
-    @page = (params[:page]||0).to_i
+    # Variables require to related books
+    @related_page = (params[:related_page] || 0).to_i
+
+
+    #@page = (params[:post_page]||0).to_i
     @book = Book.find(params[:id]) rescue nil
 
     if session[:book_id] == params[:id]
-      if params[:page].to_i == 1
+      if params[:post_page].to_i == 1
         session[:page_session] += 1
       else
         session[:page_session] -= 1
@@ -33,9 +37,16 @@ class CatalogController < ApplicationController
 
     @page = (session[:page_session]>=0 ? session[:page_session] : 0)
     session[:page_session] = @page
+
+
     #TODO implement get related books###########################################
-    @related_books = Book.latest
-    #############################################################################
+    #@related_books = @book.find_related_tags.paginate(page: params[:page], per_page: 5).order("books.id desc")
+    @related_pages_amount = (@book.find_related_tags.all.length/5.0).ceil
+    @related_books = @book.find_related_tags.
+    offset(5*@related_page).limit(5)
+    ############################################################################
+
+
     return render(text: "Not found", status: 404) unless @book
     @page_title = @book.title
     #TODO albo nowa albo nowy post dla knigu                                   #
@@ -67,6 +78,11 @@ class CatalogController < ApplicationController
       @post = ForumPost.new(parent_id: 0, book_id: @book.id)
       @new_review = false
     end
+
+
+
+
+
     respond_to do |format|
       format.html
       format.xml  { render :xml => @ics }

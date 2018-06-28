@@ -7,7 +7,7 @@
   padding: 15px;
   padding-top: 0;
   box-shadow: $bottom-box-shadow;
-  display: grid;
+  //display: grid;
   //grid-gap: 15px;
   font-size: 1rem;
   line-height: 2rem;
@@ -32,9 +32,13 @@
       h2 {
         font-size: 2rem;
       }
-      h3 {
+      p.autor {
         font-size: .8rem;
         font-weight: 100;
+      }
+
+      #info, #short-description{
+        border-bottom: 1px solid rgba(0,0,0,.1);
       }
 
       .reviews {
@@ -90,25 +94,31 @@
       }
 
       #description-info-links ul {
+        margin-top: 15px;
         display: grid;
         grid-gap: 15px;
         grid-template-columns: auto auto auto;
+        margin-bottom: 15px;
       }
     }// end of description info
 
+
+
     // Related part
     #description-related {
+      margin-left: 25px;
       a {
         color: black;
       }
-      width: 98%;
+      //width: 98%;
       display: grid;
       grid-gap: 3px;
       .related-book {
         padding-top: 5px;
         display: grid;
-        grid-template-columns: (25%) (75%);
+        grid-template-columns: (22%) (77%);
         border-bottom: 1px solid rgba(0,0,0,.1);
+        height: 115px;
         transition: .5s all linear;
         &:hover {
           box-shadow: $box-shadow;
@@ -137,11 +147,52 @@
         .thumb-container {
           img {
             width: 98%;
+            height: 100px;
+          }
+        }
+      }
+      .related-pagination {
+        ul {
+          margin-bottom: 15px;
+          width: 99%;
+          display: grid;
+          grid-gap: 15px;
+          grid-template-columns: (auto) (auto) (auto);
+          li {
+            display: inline-block;
+            line-height: 1rem;
+            padding: 2px 3px;
+            font-style: italic;
+            font-weight: bolder;
+            text-align: center;
+            border: 1px solid rgba(0, 121, 179, .5);
+            transition: .7s all linear;
+            a {
+              display: block;
+              color: rgb(0, 121, 179);
+              transition: .7s all linear;
+            }
+            &:hover, &.actual {
+              background: rgb(0, 121, 179);
+              color: white;
+              a {
+                color: white;
+              }
+            }
+            &.active{
+              border: 1px solid rgba(0, 121, 179, 1);
+            }
+            &.dis-active {
+              color: currentColor;
+              cursor: not-allowed;
+              opacity: 0.5;
+            }
           }
         }
       }
     }
-  }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }// End of
 
 
 
@@ -151,6 +202,57 @@
     .container-description {
       .blurb {
         display: none;
+      }
+      .user-info{
+        .gravatar {
+          border-radius: 50%;
+          padding: 5px;
+          float: none;
+          vertical-align: middle;
+        }
+      }
+      .review{
+        clear: both;
+      }
+    }
+  }
+
+
+
+
+
+
+  // Styles for Tag section
+  #tagging-section {
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+    a.tag_item {
+      line-height: 1rem;
+      font-weight: bolder;
+      font-style: italic;
+      color: $dark-main-color;
+      padding: 2px 10px;
+      border: 1px solid $dark-main-color;
+      margin-right: 10px;
+      transition: .7s all linear;
+      &:hover {
+        background: $dark-main-color;
+        color: white;
+        .tag_item_count {
+          background: white;
+          color: red;
+        }
+      }
+
+      .tag_item_count {
+        margin-left: 15px;
+        background: $dark-main-color;
+        font-size: 1rem;
+        padding: 1px 5px;
+        border-radius: 50%;
+        color: white;
+        transition: .7s all linear;
       }
     }
   }

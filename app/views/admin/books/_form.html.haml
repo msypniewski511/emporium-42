@@ -37,5 +37,9 @@
   .field
     = f.label :image
     = f.file_field :image, class: 'input-field'
+  .field
+    = f.label :tag_list, 'Tags (separated by commas)'
+    //= f.text_field, :tag_list, value: "#{ @book.tags.collect{|tag| tag.name}.join(',')if@book.tags}"
+    = f.text_field :tag_list, value: f.object.tag_list.to_s
   .actions
     = f.submit 'Save'

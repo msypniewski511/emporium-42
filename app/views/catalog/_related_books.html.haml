@@ -1,0 +1,21 @@
+%h3 Related books
+- @related_books.each do |book|
+  %a{:href => "/catalog/#{book.id}"}
+    .related-book
+      .thumb-container
+        = image_tag(book.image.thumb.url, alt: 'Image', class: 'thumb') if book.image?
+      .description-container
+        %span.infoline
+          = review_stars(ForumPost.average_votes(book.id)).html_safe
+        %span.infoline-1= book.title.truncate(50)
+        %span.infoline-1= "£#{book.price}"
+%nav.related-pagination
+
+  %ul.pager
+    //-if @related_page > 0
+    %li{class: "#{@related_page > 0 ? 'active':'dis-active'}"}
+      = link_to "&larr; Previous".html_safe, catalog_item_path(@book.id, related_page: @related_page - 1), remote: true, title: 'Previous Page', class: "#{@related_page > 0 ? 'active':'dis-active'}"
+    %li.actual
+      = @related_page + 1
+    %li{class: "#{@related_page + 1 < @related_pages_amount ? 'active':'dis-active'}"}
+      = link_to "Next &rarr;".html_safe, catalog_item_path(@book.id, related_page: @related_page + 1), remote: true, title: 'Next Page', class: "#{@related_page + 1 < @related_pages_amount ? 'active':'dis-active'}"

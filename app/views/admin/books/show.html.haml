@@ -1,6 +1,10 @@
 .admin-index
   - content_for :description do
     - @book.converted_to_html
+  %p
+    %strong Tags:
+    = display_tags_as_link(@book)
+    //= raw(@book.tag_list.map { |t| link_to t, tag_path(t) }.join(', '))
   %table
     %tr
       %th Title:
