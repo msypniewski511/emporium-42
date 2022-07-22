@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/rails/prototype-rails.git
+  remote: https://github.com/rails/prototype-rails.git
   revision: 0fed929ff48c10c3b978edd3baa983a81f404dbf
   branch: 4.2
   specs:
@@ -396,7 +396,7 @@ GEM
     turbolinks (5.1.1)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.11)
       execjs (>= 0.3.0, < 3)
