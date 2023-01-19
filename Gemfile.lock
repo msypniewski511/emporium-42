@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/rails/prototype-rails.git
+  remote: https://github.com/rails/prototype-rails.git
   revision: 0fed929ff48c10c3b978edd3baa983a81f404dbf
   branch: 4.2
   specs:
@@ -310,7 +310,7 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    rack (1.6.10)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5)
